@@ -4,3 +4,10 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.navItem,
+.navItem:hover {
+  color: #6c757d;
+  text-decoration: underline;
+  cursor: pointer;
+}
