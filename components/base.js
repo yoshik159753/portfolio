@@ -1,5 +1,5 @@
 import Header from "./header";
-// import Nav from "./nav";
+import Nav from "./nav";
 import Footer from "./footer";
 
 const Base = ({ children }) => {
@@ -9,9 +9,9 @@ const Base = ({ children }) => {
         <Header />
       </div>
       <div className="container">
-        {/* <div className="">
+        <div className="">
           <Nav />
-        </div> */}
+        </div>
         <div className="mt-3 pb-5">{children}</div>
       </div>
       <div className="mt-auto">

@@ -1,33 +1,35 @@
-import { Link } from "react-router-dom";
+import { animateScroll, scroller } from "react-scroll";
 
 import styles from "./nav.module.css";
 
+const NavItem = ({ item }) => {
+  const handleClick = (e, item) => {
+    if (item.to === "top") {
+      animateScroll.scrollToTop({});
+      return;
+    }
+    scroller.scrollTo(item.to);
+  };
+
+  return (
+    <a className={styles.navItem} onClick={(e) => handleClick(e, item)}>
+      {item.caption}
+    </a>
+  );
+};
+
 const Nav = () => {
   const navItems = [
-    { tag: "link", href: "/", caption: "トップ" },
-    { tag: "link", href: "/resume", caption: "職務経歴など" },
-    { tag: "link", href: "/products", caption: "MyProducts" },
-    {
-      tag: "anchor",
-      href: "https://github.com/yoshik159753",
-      caption: "GitHub",
-    },
+    // { to: "top", caption: "top" },
+    { to: "body2", caption: "body2" },
+    { to: "body3", caption: "body3" },
+    { to: "body4", caption: "body4" },
+    // {
+    //   tag: "anchor",
+    //   href: "https://github.com/yoshik159753",
+    //   caption: "GitHub",
+    // },
   ];
-
-  const NavItem = ({ item }) => {
-    if (item.tag === "anchor") {
-      return (
-        <a className="text-muted" href={item.href}>
-          {item.caption}
-        </a>
-      );
-    }
-    return (
-      <Link className="text-muted" to={item.href}>
-        {item.caption}
-      </Link>
-    );
-  };
 
   return (
     <nav className={`nav d-flex justify-content-between ${styles.nav}`}>
