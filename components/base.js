@@ -1,6 +1,7 @@
 import Header from "./header";
 import Nav from "./nav";
 import Footer from "./footer";
+import GoTop from "./goTop";
 
 const Base = ({ children }) => {
   return (
@@ -17,6 +18,7 @@ const Base = ({ children }) => {
       <div className="mt-auto">
         <Footer />
       </div>
+      <GoTop />
     </>
   );
 };
