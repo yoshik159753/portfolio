@@ -19,3 +19,13 @@ export const getWorks = async () => {
     // TODO: 例外を throws
   }
 };
+
+export const getSkillSummary = async () => {
+  try {
+    const res = await axios.get(process.env.SKILL_SUMMARY_URL);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    // TODO: 例外を throws
+  }
+};

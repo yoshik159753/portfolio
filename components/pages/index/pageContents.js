@@ -10,8 +10,10 @@ import styles from "./pageContents.module.css";
 
 import Profile from "./profile";
 import Works from "./works";
+import SkillSummary from "./skillSummary";
 
-export const scrollToWorksName = "works";
+export const scrollToWorks = "works";
+export const scrollToSkills = "skills";
 
 const BorderBlcok = ({ children }) => {
   return <div className={`border rounded ${styles.block}`}>{children}</div>;
@@ -59,20 +61,30 @@ const Body2 = ({ scrollTo }) => {
   );
 };
 
-const PageContents = ({ profile, works }) => {
-  // TODO: 意外と markdown の解析に時間がかかるので、そこもローディングを表示したい
+const PageContents = ({ profile, works, skillSummary }) => {
   return (
     <Base>
       <BorderBlcok>
         <Profile>{profile}</Profile>
       </BorderBlcok>
 
-      <div className="mt-5">
-        <Element name={scrollToWorksName}>
+      <div className={styles.contentBlock}>
+        <Element name={scrollToWorks}>
           <Title>職務経歴</Title>
-          <div className="mt-3">
+          <div className={styles.blockWithTitle}>
             <BorderBlcok>
               <Works>{works}</Works>
+            </BorderBlcok>
+          </div>
+        </Element>
+      </div>
+
+      <div className={styles.contentBlock}>
+        <Element name={scrollToSkills}>
+          <Title>技術スタック概要</Title>
+          <div className={styles.blockWithTitle}>
+            <BorderBlcok>
+              <SkillSummary skillSummary={skillSummary} />
             </BorderBlcok>
           </div>
         </Element>
