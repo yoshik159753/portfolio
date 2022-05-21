@@ -9,22 +9,19 @@ import Spinner from "@/components/spinners/spinner";
 import styles from "./pageContents.module.css";
 
 import Profile from "./profile";
+import Works from "./works";
 
-export const getProfile = async (params) => {
-  return await axios.get(`/api/admin/current-user`);
-};
+export const scrollToWorksName = "works";
 
 const BorderBlcok = ({ children }) => {
-  return (
-    <div className={`border rounded px-5 py-3 ${styles.block}`}>{children}</div>
-  );
+  return <div className={`border rounded ${styles.block}`}>{children}</div>;
 };
 
 const Title = ({ children }) => {
   return (
-    <>
+    <div className={styles.title}>
       <h2>{children}</h2>
-    </>
+    </div>
   );
 };
 
@@ -62,26 +59,25 @@ const Body2 = ({ scrollTo }) => {
   );
 };
 
-const PageContents = ({ profile }) => {
-  const [{ response, isError, isLoading }, getProfileClient] = useHttpRequest(
-    getProfile,
-    true
-  );
-
-  useEffect(() => {
-    getProfileClient();
-  }, [getProfileClient]);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
+const PageContents = ({ profile, works }) => {
   // TODO: 意外と markdown の解析に時間がかかるので、そこもローディングを表示したい
   return (
     <Base>
       <BorderBlcok>
         <Profile>{profile}</Profile>
       </BorderBlcok>
+
+      <div className="mt-5">
+        <Element name={scrollToWorksName}>
+          <Title>職務経歴</Title>
+          <div className="mt-3">
+            <BorderBlcok>
+              <Works>{works}</Works>
+            </BorderBlcok>
+          </div>
+        </Element>
+      </div>
+
       <div className="mt-4">
         <Body2 scrollTo="body2" />
       </div>

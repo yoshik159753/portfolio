@@ -1,5 +1,7 @@
 import { animateScroll, scroller } from "react-scroll";
 
+import { scrollToWorksName } from "./pages/index/pageContents";
+
 import styles from "./nav.module.css";
 
 const NavItem = ({ item }) => {
@@ -21,7 +23,7 @@ const NavItem = ({ item }) => {
 const Nav = () => {
   const navItems = [
     // { to: "top", caption: "top" },
-    { to: "body2", caption: "body2" },
+    { to: scrollToWorksName, caption: "職務経歴" },
     { to: "body3", caption: "body3" },
     { to: "body4", caption: "body4" },
     // {
