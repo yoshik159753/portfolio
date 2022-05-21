@@ -1,0 +1,39 @@
+.reactMarkDown h2,
+.reactMarkDown h3 {
+  margin-top: 1.5em;
+}
+
+.reactMarkDown h1 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  .reactMarkDown h1 {
+    font-size: 2rem;
+  }
+}
+
+.reactMarkDown h2 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+@media (min-width: 1200px) {
+  .reactMarkDown h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.reactMarkDown h3 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  .reactMarkDown h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.reactMarkDown h4 {
+  font-size: 1.25rem;
+}
+
+.reactMarkDown h5 {
+  font-size: 1rem;
+}

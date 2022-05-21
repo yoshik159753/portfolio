@@ -4,12 +4,20 @@ import { Element } from "react-scroll";
 
 import Base from "@/components/base";
 import useHttpRequest from "@/hooks/useHttpRequest";
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/spinners/spinner";
 
 import styles from "./pageContents.module.css";
 
+import Profile from "./profile";
+
 export const getProfile = async (params) => {
   return await axios.get(`/api/admin/current-user`);
+};
+
+const BorderBlcok = ({ children }) => {
+  return (
+    <div className={`border rounded px-5 py-3 ${styles.block}`}>{children}</div>
+  );
 };
 
 const Title = ({ children }) => {
@@ -20,7 +28,7 @@ const Title = ({ children }) => {
   );
 };
 
-const Block = ({ scrollTo, title, children }) => {
+const Block2 = ({ scrollTo, title, children }) => {
   return (
     <Element name={scrollTo} className={`${styles.block}`}>
       {title === null ? "" : <Title>{title}</Title>}
@@ -33,7 +41,7 @@ const Block = ({ scrollTo, title, children }) => {
 
 const Body = () => {
   return (
-    <Block>
+    <Block2>
       <div>
         {/* <ReactMarkdown
   children={profile}
@@ -42,19 +50,19 @@ const Body = () => {
 /> */}
         body
       </div>
-    </Block>
+    </Block2>
   );
 };
 
 const Body2 = ({ scrollTo }) => {
   return (
-    <Block scrollTo={scrollTo} title="Title">
+    <Block2 scrollTo={scrollTo} title="Title">
       <div>body</div>
-    </Block>
+    </Block2>
   );
 };
 
-const PageContents = () => {
+const PageContents = ({ profile }) => {
   const [{ response, isError, isLoading }, getProfileClient] = useHttpRequest(
     getProfile,
     true
@@ -71,7 +79,9 @@ const PageContents = () => {
   // TODO: 意外と markdown の解析に時間がかかるので、そこもローディングを表示したい
   return (
     <Base>
-      <Body />
+      <BorderBlcok>
+        <Profile>{profile}</Profile>
+      </BorderBlcok>
       <div className="mt-4">
         <Body2 scrollTo="body2" />
       </div>
