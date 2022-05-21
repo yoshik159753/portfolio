@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { animateScroll } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./goTop.module.css";
 
@@ -26,7 +28,11 @@ const GoTop = () => {
 
   return (
     <div className={styles.scrollToTop}>
-      {isVisible && <div onClick={handleClick}>To Top!</div>}
+      {isVisible && (
+        <div className={styles.iconBody} onClick={handleClick}>
+          <FontAwesomeIcon icon={faAngleUp} />
+        </div>
+      )}
     </div>
   );
 };
