@@ -1,3 +1,4 @@
+/* フォントサイズ */
 .reactMarkDown h2,
 .reactMarkDown h3 {
   margin-top: 1.5em;
@@ -36,4 +37,29 @@
 
 .reactMarkDown h5 {
   font-size: 1rem;
+}
+
+/* テーブル */
+.reactMarkDown table {
+  border: 1px solid #dee2e6;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.reactMarkDown table thead td,
+.reactMarkDown table thead th {
+  border-bottom-width: 2px;
+}
+.reactMarkDown table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.reactMarkDown table td,
+.reactMarkDown table th {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }

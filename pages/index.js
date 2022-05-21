@@ -1,9 +1,19 @@
-import { getProfile, getSkillSummary, getWorks } from "@/actions/api";
+import {
+  getProfile,
+  getSkills,
+  getSkillSummary,
+  getWorks,
+} from "@/actions/api";
 import PageContents from "../components/pages/index/pageContents";
 
-const Index = ({ profile, works, skillSummary }) => {
+const Index = ({ profile, works, skillSummary, skills }) => {
   return (
-    <PageContents profile={profile} works={works} skillSummary={skillSummary} />
+    <PageContents
+      profile={profile}
+      works={works}
+      skillSummary={skillSummary}
+      skills={skills}
+    />
   );
 };
 
@@ -11,8 +21,9 @@ export async function getServerSideProps(context) {
   const profile = await getProfile();
   const works = await getWorks();
   const skillSummary = await getSkillSummary();
+  const skills = await getSkills();
   return {
-    props: { profile, works, skillSummary },
+    props: { profile, works, skillSummary, skills },
   };
 }
 

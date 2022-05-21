@@ -11,6 +11,7 @@ import styles from "./pageContents.module.css";
 import Profile from "./profile";
 import Works from "./works";
 import SkillSummary from "./skillSummary";
+import Skills from "./skills";
 
 export const scrollToWorks = "works";
 export const scrollToSkills = "skills";
@@ -61,7 +62,7 @@ const Body2 = ({ scrollTo }) => {
   );
 };
 
-const PageContents = ({ profile, works, skillSummary }) => {
+const PageContents = ({ profile, works, skillSummary, skills }) => {
   return (
     <Base>
       <BorderBlcok>
@@ -88,6 +89,15 @@ const PageContents = ({ profile, works, skillSummary }) => {
             </BorderBlcok>
           </div>
         </Element>
+      </div>
+
+      <div className={styles.contentBlock}>
+        <Title>技術スタック</Title>
+        <div className={styles.blockWithTitle}>
+          <BorderBlcok>
+            <Skills>{skills}</Skills>
+          </BorderBlcok>
+        </div>
       </div>
 
       <div className="mt-4">
