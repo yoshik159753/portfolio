@@ -1,6 +1,10 @@
 import { animateScroll, scroller } from "react-scroll";
 
-import { scrollToWorks, scrollToSkills } from "./pages/index/pageContents";
+import {
+  scrollToWorks,
+  scrollToSkills,
+  scrollToProducts,
+} from "./pages/index/pageContents";
 
 import styles from "./nav.module.css";
 
@@ -25,7 +29,7 @@ const Nav = () => {
     // { to: "top", caption: "top" },
     { to: scrollToWorks, caption: "職務経歴" },
     { to: scrollToSkills, caption: "技術スタック" },
-    { to: "body4", caption: "body4" },
+    { to: scrollToProducts, caption: "Products" },
     // {
     //   tag: "anchor",
     //   href: "https://github.com/yoshik159753",

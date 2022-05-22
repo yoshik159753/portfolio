@@ -12,9 +12,11 @@ import Profile from "./profile";
 import Works from "./works";
 import SkillSummary from "./skillSummary";
 import Skills from "./skills";
+import Products from "./products";
 
 export const scrollToWorks = "works";
 export const scrollToSkills = "skills";
+export const scrollToProducts = "products";
 
 const BorderBlcok = ({ children }) => {
   return <div className={`border rounded ${styles.block}`}>{children}</div>;
@@ -98,6 +100,15 @@ const PageContents = ({ profile, works, skillSummary, skills }) => {
             <Skills>{skills}</Skills>
           </BorderBlcok>
         </div>
+      </div>
+
+      <div className={styles.contentBlock}>
+        <Element name={scrollToProducts}>
+          <Title>Products</Title>
+          <div className={styles.blockWithTitle}>
+            <Products />
+          </div>
+        </Element>
       </div>
 
       <div className="mt-4">
