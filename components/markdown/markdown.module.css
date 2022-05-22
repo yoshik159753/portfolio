@@ -1,0 +1,68 @@
+/* フォントサイズ */
+.reactMarkDown h2,
+.reactMarkDown h3 {
+  margin-top: 1.5em;
+}
+
+.reactMarkDown h1 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  .reactMarkDown h1 {
+    font-size: 2rem;
+  }
+}
+
+.reactMarkDown h2 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+@media (min-width: 1200px) {
+  .reactMarkDown h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.reactMarkDown h3 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  .reactMarkDown h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.reactMarkDown h4 {
+  font-size: 1.25rem;
+}
+
+.reactMarkDown h5 {
+  font-size: 1rem;
+}
+
+/* テーブル */
+.reactMarkDown table {
+  border: 1px solid #dee2e6;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.reactMarkDown table thead td,
+.reactMarkDown table thead th {
+  border-bottom-width: 2px;
+}
+.reactMarkDown table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.reactMarkDown table td,
+.reactMarkDown table th {
+  border: 1px solid #dee2e6;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}

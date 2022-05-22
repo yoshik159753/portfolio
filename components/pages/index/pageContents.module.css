@@ -3,4 +3,23 @@
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.blockWithTitle {
+  margin-top: 1rem;
+}
+
+.title {
+  width: auto;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contentBlock {
+  margin-top: 3rem;
 }

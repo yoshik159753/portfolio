@@ -1,4 +1,11 @@
+import Image from "next/image";
 import { animateScroll, scroller } from "react-scroll";
+
+import {
+  scrollToWorks,
+  scrollToSkills,
+  scrollToProducts,
+} from "./pages/index/pageContents";
 
 import styles from "./nav.module.css";
 
@@ -20,26 +27,37 @@ const NavItem = ({ item }) => {
 
 const Nav = () => {
   const navItems = [
-    // { to: "top", caption: "top" },
-    { to: "body2", caption: "body2" },
-    { to: "body3", caption: "body3" },
-    { to: "body4", caption: "body4" },
-    // {
-    //   tag: "anchor",
-    //   href: "https://github.com/yoshik159753",
-    //   caption: "GitHub",
-    // },
+    { to: scrollToWorks, caption: "職務経歴" },
+    { to: scrollToSkills, caption: "技術スタック" },
+    { to: scrollToProducts, caption: "Products" },
   ];
 
   return (
-    <nav className={`nav d-flex justify-content-between ${styles.nav}`}>
+    <nav
+      className={`nav d-flex justify-content-around align-items-center ${styles.nav}`}
+    >
       {navItems.map((item, index) => {
         return (
-          <div className="p-2" key={index}>
+          <div className={styles.navItemBlcok} key={index}>
             <NavItem item={item} />
           </div>
         );
       })}
+
+      <div className={styles.navItemBlcok}>
+        <a
+          href="https://github.com/yoshik159753/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Image
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
+            alt="github"
+            width="30"
+            height="30"
+          />
+        </a>
+      </div>
     </nav>
   );
 };
