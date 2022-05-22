@@ -5,6 +5,12 @@
   margin-right: auto;
 }
 
+.navItemBlcok {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .navItem,
 .navItem:hover {
   color: #6c757d;

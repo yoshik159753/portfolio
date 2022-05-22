@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { animateScroll, scroller } from "react-scroll";
 
 import {
@@ -29,22 +30,34 @@ const Nav = () => {
     { to: scrollToWorks, caption: "職務経歴" },
     { to: scrollToSkills, caption: "技術スタック" },
     { to: scrollToProducts, caption: "Products" },
-    // {
-    //   tag: "anchor",
-    //   href: "https://github.com/yoshik159753",
-    //   caption: "GitHub",
-    // },
   ];
 
   return (
-    <nav className={`nav d-flex justify-content-between ${styles.nav}`}>
+    <nav
+      className={`nav d-flex justify-content-around align-items-center ${styles.nav}`}
+    >
       {navItems.map((item, index) => {
         return (
-          <div className="p-2" key={index}>
+          <div className={styles.navItemBlcok} key={index}>
             <NavItem item={item} />
           </div>
         );
       })}
+
+      <div className={styles.navItemBlcok}>
+        <a
+          href="https://github.com/yoshik159753/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Image
+            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg"
+            alt="github"
+            width="30"
+            height="30"
+          />
+        </a>
+      </div>
     </nav>
   );
 };
