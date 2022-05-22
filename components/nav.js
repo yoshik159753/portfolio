@@ -26,7 +26,6 @@ const NavItem = ({ item }) => {
 
 const Nav = () => {
   const navItems = [
-    // { to: "top", caption: "top" },
     { to: scrollToWorks, caption: "職務経歴" },
     { to: scrollToSkills, caption: "技術スタック" },
     { to: scrollToProducts, caption: "Products" },
