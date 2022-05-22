@@ -45,7 +45,15 @@ const Products = () => {
       text: `よく使用する Unix や Linux のコマンド、また各種プログラミングの言語の Tips をまとめたサイトです。
       メンテナンス性や表現力が高い Asciidoc を使用しています。`,
       tech: `Asciidoc, GitHub Pages`,
-      link: <a href="https://yoshik159753.github.io/dev-tips/">Link</a>,
+      link: (
+        <a
+          href="https://yoshik159753.github.io/dev-tips/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Link
+        </a>
+      ),
     },
     {
       img: flaskrImg,
@@ -53,14 +61,30 @@ const Products = () => {
       text: `React の素振りとして、 Flask のチュートリアルを React で再現しています。
       バックエンドは Flask アプリを Heroku にデプロイし、フロントエンドは React アプリを Vercel にデプロイしています。(作成中)`,
       tech: `Python, Flask, React, Heroku, Vercel`,
-      link: <a href="https://react-training-two.vercel.app/flaskr">Link</a>,
+      link: (
+        <a
+          href="https://react-training-two.vercel.app/flaskr"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Link
+        </a>
+      ),
     },
     {
       img: howManyPersonHourImg,
       title: "How many person hour?",
       text: "React の素振りとして作成した工数算出ツールです。",
       tech: `React, Vercel`,
-      link: <a href="https://how-many-person-hour.vercel.app/">Link</a>,
+      link: (
+        <a
+          href="https://how-many-person-hour.vercel.app/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Link
+        </a>
+      ),
     },
   ];
 
