@@ -13,12 +13,12 @@ const Card = ({ img, title, text, tech, link }) => {
     <div className={`card ${styles.card}`}>
       <div className="row no-gutters">
         <div className="col-md-4 p-0">
-          <div className="ps-4 pt-3 pb-3">
-            <Image src={img} alt="preview" />
+          <div className="ps-4 pe-4 pe-md-0 pt-3 pb-3">
+            <Image src={img} alt="preview" layout="responsive" />
           </div>
         </div>
         <div className="col-md-8 p-0">
-          <div className="card-body">
+          <div className="card-body py-3 py-md-3 px-5 px-md-3">
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{text}</p>
             <p className="card-text">使用技術: {tech}</p>
