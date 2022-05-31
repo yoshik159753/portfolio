@@ -24,12 +24,13 @@
 
 .reactMarkDown h3 {
   font-size: calc(1.275rem + 0.3vw);
-  text-decoration: underline;
+  border-bottom: 1px solid #212529;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 @media (min-width: 1200px) {
   .reactMarkDown h3 {
     font-size: 1.5rem;
-    text-decoration: underline;
   }
 }
 
