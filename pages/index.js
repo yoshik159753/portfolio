@@ -4,11 +4,11 @@ import {
   getSkillSummary,
   getWorks,
 } from "@/actions/api";
-import PageContents from "../components/pages/index/pageContents";
+import Index_ from "../components/pages/index/index";
 
 const Index = ({ profile, works, skillSummary, skills }) => {
   return (
-    <PageContents
+    <Index_
       profile={profile}
       works={works}
       skillSummary={skillSummary}

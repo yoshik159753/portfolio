@@ -5,7 +5,7 @@ import {
   scrollToWorks,
   scrollToSkills,
   scrollToProducts,
-} from "./pages/index/pageContents";
+} from "./pages/index/index";
 
 import styles from "./nav.module.css";
 

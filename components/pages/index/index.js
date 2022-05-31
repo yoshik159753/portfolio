@@ -2,7 +2,7 @@ import { Element } from "react-scroll";
 
 import Base from "@/components/base";
 
-import styles from "./pageContents.module.css";
+import styles from "./index.module.css";
 
 import Profile from "./profile";
 import Works from "./works";
@@ -26,7 +26,7 @@ const Title = ({ children }) => {
   );
 };
 
-const PageContents = ({ profile, works, skillSummary, skills }) => {
+const Index = ({ profile, works, skillSummary, skills }) => {
   return (
     <Base>
       <BorderBlcok>
@@ -76,4 +76,4 @@ const PageContents = ({ profile, works, skillSummary, skills }) => {
   );
 };
 
-export default PageContents;
+export default Index;
