@@ -9,7 +9,7 @@ const Header = () => {
             Yoshi K &apos;s Portfolio.
           </span>
           <span className="d-block small ms-3 ms-md-0">
-            Last Updated on 2022/05
+            Last Updated on 2022/11
           </span>
         </div>
       </div>
