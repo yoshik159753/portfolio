@@ -59,15 +59,11 @@ const Products = () => {
       img: flaskrImg,
       title: "Flaskr with React",
       text: `React の素振りとして、 Flask のチュートリアルを React で再現しています。
-      バックエンドは Flask アプリを Heroku にデプロイし、フロントエンドは React アプリを Vercel にデプロイしています。(作成中)`,
+      バックエンドは Flask アプリを Heroku にデプロイし、フロントエンドは React アプリを Vercel にデプロイしています。(heroku の無料枠終了に伴い停止中)`,
       tech: `Python, Flask, React, Heroku, Vercel`,
       link: (
-        <a
-          href="https://react-training-two.vercel.app/flaskr"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Link
+        <a href="javascript:void(0)" rel="noreferrer noopener">
+          停止中
         </a>
       ),
     },
