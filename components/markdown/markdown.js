@@ -6,13 +6,11 @@ import styles from "./markdown.module.css";
 
 const Markdown = ({ children }) => {
   return (
-    <ReactMarkdown
-      className={styles.reactMarkDown}
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
-    >
-      {children}
-    </ReactMarkdown>
+    <div className={styles.reactMarkDown}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+        {children}
+      </ReactMarkdown>
+    </div>
   );
 };
 
