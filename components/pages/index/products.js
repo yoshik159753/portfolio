@@ -14,7 +14,15 @@ const Card = ({ img, title, text, tech, link }) => {
       <div className="row no-gutters">
         <div className="col-md-4 p-0">
           <div className="ps-4 pe-4 pe-md-0 pt-3 pb-3">
-            <Image src={img} alt="preview" layout="responsive" />
+            <Image
+              src={img}
+              alt="preview"
+              style={{
+                width: "100%",
+                height: "auto",
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         </div>
         <div className="col-md-8 p-0">
