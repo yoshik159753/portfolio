@@ -70,9 +70,7 @@ const Products = () => {
       バックエンドは Flask アプリを Heroku にデプロイし、フロントエンドは React アプリを Vercel にデプロイしています。(heroku の無料枠終了に伴い停止中)`,
       tech: `Python, Flask, React, Heroku, Vercel`,
       link: (
-        <a href="javascript:void(0)" rel="noreferrer noopener">
-          停止中
-        </a>
+        <span>停止中</span>
       ),
     },
     {
