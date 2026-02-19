@@ -43,7 +43,6 @@ const Nav = () => {
           </div>
         );
       })}
-
       <div className={styles.navItemBlcok}>
         <a
           href="https://github.com/yoshik159753/"
@@ -55,7 +54,10 @@ const Nav = () => {
             alt="github"
             width="30"
             height="30"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </a>
       </div>
     </nav>

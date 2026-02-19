@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["www.vectorlogo.zone", "raw.githubusercontent.com"],
+    remotePatterns: [
+      { protocol: "https", hostname: "www.vectorlogo.zone", pathname: "/**" },
+      { protocol: "https", hostname: "raw.githubusercontent.com", pathname: "/**" },
+    ],
   },
 };
 
