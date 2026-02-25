@@ -34,7 +34,7 @@ const Nav = () => {
 
   return (
     <nav
-      className={`nav d-flex justify-content-around align-items-center ${styles.nav}`}
+      className={`flex justify-around items-center ${styles.nav}`}
     >
       {navItems.map((item, index) => {
         return (

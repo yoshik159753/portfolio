@@ -10,10 +10,10 @@ import howManyPersonHourImg from "@/public/images/products/how_many_person_hour.
 
 const Card = ({ img, title, text, tech, link }) => {
   return (
-    <div className={`card ${styles.card}`}>
-      <div className="row no-gutters">
-        <div className="col-md-4 p-0">
-          <div className="ps-4 pe-4 pe-md-0 pt-3 pb-3">
+    <div className={`border rounded overflow-hidden ${styles.card}`}>
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-1/3">
+          <div className="pl-6 pr-6 md:pr-0 pt-4 pb-4">
             <Image
               src={img}
               alt="preview"
@@ -21,16 +21,15 @@ const Card = ({ img, title, text, tech, link }) => {
                 width: "100%",
                 height: "auto",
                 maxWidth: "100%",
-                height: "auto"
               }} />
           </div>
         </div>
-        <div className="col-md-8 p-0">
-          <div className="card-body py-3 py-md-3 px-5 px-md-3">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{text}</p>
-            <p className="card-text">使用技術: {tech}</p>
-            <div className="card-link">{link}</div>
+        <div className="md:w-2/3">
+          <div className="py-4 md:py-4 px-12 md:px-4">
+            <h5 className="text-xl font-semibold mb-2">{title}</h5>
+            <p className="mb-4">{text}</p>
+            <p className="mb-4">使用技術: {tech}</p>
+            <div>{link}</div>
           </div>
         </div>
       </div>
