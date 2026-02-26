@@ -5,10 +5,10 @@ const Header = () => {
     <div className={styles.header}>
       <div className={styles.titleBody}>
         <div>
-          <span className={`d-block fs-3 fw-bold ms-3 ms-md-0`}>
+          <span className={`block text-[1.75rem] font-bold ml-4 md:ml-0`}>
             Yoshi K &apos;s Portfolio.
           </span>
-          <span className="d-block small ms-3 ms-md-0">
+          <span className="block text-sm ml-4 md:ml-0">
             Last Updated on 2022/11
           </span>
         </div>

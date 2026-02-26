@@ -31,7 +31,7 @@ const PieDiag = ({ title, data }) => {
 
   return (
     <div className="mt-1">
-      <div className="d-flex justify-content-center">
+      <div className="flex justify-center">
         <span>{title}</span>
       </div>
       <PieChart width={200} height={150}>

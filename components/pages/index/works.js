@@ -26,7 +26,7 @@ const Works = ({ children }) => {
     setHandleButtonCaption(
       <>
         <FontAwesomeIcon icon={faAngleDown} />
-        <span className="ms-2">開く</span>
+        <span className="ml-2">開く</span>
       </>
     );
     refTransitionBlcok.current.className = styles.close;
@@ -55,7 +55,7 @@ const Works = ({ children }) => {
     setHandleButtonCaption(
       <>
         <FontAwesomeIcon icon={faAngleUp} />
-        <span className="ms-2">閉じる</span>
+        <span className="ml-2">閉じる</span>
       </>
     );
     refTransitionBlcok.current.className = "";
@@ -111,11 +111,11 @@ const Works = ({ children }) => {
       <div ref={refTransitionBlcok}>
         <Markdown>{children}</Markdown>
       </div>
-      <div className="d-flex justify-content-center">
+      <div className="flex justify-center">
         {handleButtonCaption ? (
           <button
             type="button"
-            className="btn btn-lg border rounded w-75 bg-light"
+            className="w-3/4 border rounded bg-gray-100 py-2 px-4 text-lg cursor-pointer"
             onClick={handleToNext}
           >
             {handleButtonCaption}

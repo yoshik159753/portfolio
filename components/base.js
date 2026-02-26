@@ -9,11 +9,11 @@ const Base = ({ children }) => {
       <div className="">
         <Header />
       </div>
-      <div className="container">
+      <div className="max-w-[720px] mx-auto px-4">
         <div className="">
           <Nav />
         </div>
-        <div className="mt-3 pb-5">{children}</div>
+        <div className="mt-4 pb-12">{children}</div>
       </div>
       <div className="mt-auto">
         <Footer />
