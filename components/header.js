@@ -69,12 +69,6 @@ const Header = () => {
                   GitHub
                 </a>
               </li>
-              {/* TODO: 最終更新日はフッターに移行する */}
-              <li>
-                <span className="px-4 py-2 text-neutral-500 text-sm">
-                  最終更新: 2022年11月
-                </span>
-              </li>
             </ul>
           </div>
         </div>
