@@ -9,7 +9,6 @@ import Skills from "./skills";
 import Products from "./products";
 
 import Header from "@/components/header";
-import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import GoTop from "@/components/goTop";
 
@@ -32,14 +31,9 @@ const Title = ({ children }) => {
 const Index = ({ profile, works, skillSummary, skills }) => {
   return (
     <>
-      <div className="">
-        <Header />
-      </div>
+      <Header />
       <div className="max-w-[720px] mx-auto px-4">
-        <div className="">
-          <Nav />
-        </div>
-        <div className="mt-4 pb-12">
+        <div className="pt-20 pb-12">
           <BorderBlcok>
             <Profile>{profile}</Profile>
           </BorderBlcok>
