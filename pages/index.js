@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 
 import { getSkills, getSkillSummary, getWorks } from "@/actions/api";
-import Index_ from "../components/pages/index/index";
+import Index_, { BorderBlcok } from "../components/pages/index/index";
+import Profile from "@/components/pages/index/profile";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import GoTop from "@/components/goTop";
@@ -11,12 +12,12 @@ const Index = ({ profile, works, skillSummary, skills }) => {
   return (
     <>
       <Header />
-      <Index_
-        profile={profile}
-        works={works}
-        skillSummary={skillSummary}
-        skills={skills}
-      />
+      <main className="pt-20 pb-12 max-w-[720px] mx-auto px-4">
+        <BorderBlcok>
+          <Profile>{profile}</Profile>
+        </BorderBlcok>
+        <Index_ works={works} skillSummary={skillSummary} skills={skills} />
+      </main>
       <Footer />
       <GoTop />
     </>
