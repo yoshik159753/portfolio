@@ -1,5 +1,7 @@
+import fs from "fs";
+import path from "path";
+
 import {
-  getProfile,
   getSkills,
   getSkillSummary,
   getWorks,
@@ -18,7 +20,10 @@ const Index = ({ profile, works, skillSummary, skills }) => {
 };
 
 export async function getServerSideProps(context) {
-  const profile = await getProfile();
+  const profile = fs.readFileSync(
+    path.join(process.cwd(), "content", "profile.md"),
+    "utf-8"
+  );
   const works = await getWorks();
   const skillSummary = await getSkillSummary();
   const skills = await getSkills();
