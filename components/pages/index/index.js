@@ -8,10 +8,6 @@ import SkillSummary from "./skillSummary";
 import Skills from "./skills";
 import Products from "./products";
 
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import GoTop from "@/components/goTop";
-
 export const scrollToWorks = "works";
 export const scrollToSkills = "skills";
 export const scrollToProducts = "products";
@@ -31,7 +27,6 @@ const Title = ({ children }) => {
 const Index = ({ profile, works, skillSummary, skills }) => {
   return (
     <>
-      <Header />
       <div className="max-w-[720px] mx-auto px-4">
         <div className="pt-20 pb-12">
           <BorderBlcok>
@@ -79,10 +74,6 @@ const Index = ({ profile, works, skillSummary, skills }) => {
           </div>
         </div>
       </div>
-      <div className="mt-auto">
-        <Footer />
-      </div>
-      <GoTop />
     </>
   );
 };
