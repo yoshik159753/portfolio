@@ -5,7 +5,6 @@ import path from "path";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import GoTop from "@/components/goTop";
 import Profile from "@/components/profile";
 import Works from "@/components/works";
 import SkillSummary from "@/components/skillSummary";
@@ -80,7 +79,6 @@ const Index = ({ profile, works, skillSummary, skills }) => {
         </div>
       </main>
       <Footer />
-      <GoTop />
     </>
   );
 };
