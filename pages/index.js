@@ -27,7 +27,7 @@ const Title = ({ children }) => {
   );
 };
 
-const Index = ({ profile, works, skillSummary, skills }) => {
+const Index = ({ profile, profile2, works, skillSummary, skills }) => {
   return (
     <>
       <Header />
@@ -35,6 +35,12 @@ const Index = ({ profile, works, skillSummary, skills }) => {
         <BorderBlcok>
           <Profile>{profile}</Profile>
         </BorderBlcok>
+
+        <div className="mt-10">
+          <BorderBlcok>
+            <Profile>{profile2}</Profile>
+          </BorderBlcok>
+        </div>
 
         <div id={scrollToWorks} className={styles.contentBlock}>
           <Title>職務経歴</Title>
@@ -80,6 +86,10 @@ export async function getServerSideProps() {
     path.join(process.cwd(), "content", "profile.md"),
     "utf-8"
   );
+  const profile2 = fs.readFileSync(
+    path.join(process.cwd(), "content", "profile2.md"),
+    "utf-8"
+  );
   const works = fs.readFileSync(
     path.join(process.cwd(), "content", "works.md"),
     "utf-8"
@@ -95,7 +105,7 @@ export async function getServerSideProps() {
     "utf-8"
   );
   return {
-    props: { profile, works, skillSummary, skills },
+    props: { profile, profile2, works, skillSummary, skills },
   };
 }
 
