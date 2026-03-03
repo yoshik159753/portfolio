@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const scrollToWorks = "works";
 export const scrollToSkills = "skills";
 export const scrollToProducts = "products";
@@ -11,8 +9,6 @@ const navItems = [
 ];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-[1000]">
       <nav className="h-full">
@@ -24,35 +20,18 @@ const Header = () => {
             >
               Yoshi K &apos;s Portfolio.
             </a>
-            {/* TODO: ハンバーガーメニューの見直し。アイコン使いたい */}
-            <button
-              className="flex flex-col gap-1 w-7 h-6 z-[1001] cursor-pointer md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="メニュー"
-            >
-              <span className="block w-full h-0.5 bg-neutral-900 transition-all duration-150"></span>
-              <span className="block w-full h-0.5 bg-neutral-900 transition-all duration-150"></span>
-              <span className="block w-full h-0.5 bg-neutral-900 transition-all duration-150"></span>
-            </button>
-            {/* TODO: レスポンシブの見直し。スタイル長すぎ */}
-            <ul
-              className={`fixed top-16 left-0 right-0 bg-white border-b border-neutral-200 p-6 flex flex-col gap-4 transition-all duration-250 md:static md:flex-row md:translate-y-0 md:opacity-100 md:pointer-events-auto md:p-0 md:border-none md:bg-transparent md:items-center ${
-                isMenuOpen
-                  ? "translate-y-0 opacity-100 pointer-events-auto"
-                  : "-translate-y-full opacity-0 pointer-events-none"
-              }`}
-            >
+            <ul className="hidden md:flex md:flex-row md:items-center">
               {navItems.map((item, index) => (
                 <li key={index}>
                   <a
-                    className="px-4 py-2 rounded-lg font-medium transition-colors duration-150 hover:bg-neutral-100 cursor-pointer"
+                    className="px-4 py-2 rounded-lg font-medium transition-colors duration-150 hover:bg-neutral-100"
                     href={"#" + item.to}
                   >
                     {item.caption}
                   </a>
                 </li>
               ))}
-              <li className="h-px bg-neutral-200 my-2 md:w-px md:h-5 md:my-0 md:mx-2"></li>
+              <li className="w-px h-5 mx-2 bg-neutral-200"></li>
               <li>
                 <a
                   href="https://github.com/yoshik159753/"
