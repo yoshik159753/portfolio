@@ -6,11 +6,11 @@ import path from "path";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import GoTop from "@/components/goTop";
-import Profile from "@/components/pages/index/profile";
-import Works from "@/components/pages/index/works";
-import SkillSummary from "@/components/pages/index/skillSummary";
-import Skills from "@/components/pages/index/skills";
-import Products from "@/components/pages/index/products";
+import Profile from "@/components/profile";
+import Works from "@/components/works";
+import SkillSummary from "@/components/skillSummary";
+import Skills from "@/components/skills";
+import Products from "@/components/products";
 
 import styles from "@/pages/index.module.css";
 
