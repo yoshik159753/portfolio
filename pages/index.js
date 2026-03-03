@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-import { getSkills, getSkillSummary, getWorks } from "@/actions/api";
 import Index_, { BorderBlcok } from "../components/pages/index/index";
 import Profile from "@/components/pages/index/profile";
 import Header from "@/components/header";
@@ -29,9 +28,20 @@ export async function getServerSideProps() {
     path.join(process.cwd(), "content", "profile.md"),
     "utf-8"
   );
-  const works = await getWorks();
-  const skillSummary = await getSkillSummary();
-  const skills = await getSkills();
+  const works = fs.readFileSync(
+    path.join(process.cwd(), "content", "works.md"),
+    "utf-8"
+  );
+  const skillSummary = JSON.parse(
+    fs.readFileSync(
+      path.join(process.cwd(), "content", "skillSummary.json"),
+      "utf-8"
+    )
+  );
+  const skills = fs.readFileSync(
+    path.join(process.cwd(), "content", "skills.md"),
+    "utf-8"
+  );
   return {
     props: { profile, works, skillSummary, skills },
   };

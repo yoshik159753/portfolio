@@ -1,0 +1,182 @@
+[
+  {
+    "title": "プログラミング言語",
+    "titleEn": "lang",
+    "data": [
+      {
+        "name": "Bash",
+        "value": 5
+      },
+      {
+        "name": "C/C++",
+        "value": 1
+      },
+      {
+        "name": "Java",
+        "value": 3
+      },
+      {
+        "name": "JavaScript",
+        "value": 5
+      },
+      {
+        "name": "PHP",
+        "value": 8
+      },
+      {
+        "name": "Python",
+        "value": 8
+      },
+      {
+        "name": "SQL",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "title": "フレームワーク",
+    "titleEn": "framework",
+    "data": [
+      {
+        "name": "Bootstrap(CSS)",
+        "value": 5
+      },
+      {
+        "name": "FastAPI(Python)",
+        "value": 3
+      },
+      {
+        "name": "Flask(Python)",
+        "value": 5
+      },
+      {
+        "name": "Laravel(PHP)",
+        "value": 5
+      },
+      {
+        "name": "React(JavaScript)",
+        "value": 5
+      },
+      {
+        "name": "Spring(Java)",
+        "value": 1
+      },
+      {
+        "name": "Vue(JavaScript)",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "title": "使用ツール",
+    "titleEn": "tools",
+    "data": [
+      {
+        "name": "Ansible",
+        "value": 5
+      },
+      {
+        "name": "Asciidoc",
+        "value": 5
+      },
+      {
+        "name": "Docker",
+        "value": 5
+      },
+      {
+        "name": "git",
+        "value": 8
+      },
+      {
+        "name": "Markdown",
+        "value": 8
+      },
+      {
+        "name": "SVN",
+        "value": 3
+      },
+      {
+        "name": "VSCode",
+        "value": 8
+      }
+    ]
+  },
+  {
+    "title": "キャリア",
+    "titleEn": "career",
+    "data": [
+      {
+        "name": "Web系ﾊﾞｯｸｴﾝﾄﾞｱﾌﾟﾘ",
+        "value": 8
+      },
+      {
+        "name": "Web系ﾌﾛﾝﾄｴﾝﾄﾞ",
+        "value": 5
+      },
+      {
+        "name": "ｲﾝﾌﾗ",
+        "value": 3
+      },
+      {
+        "name": "Androidｱﾌﾟﾘ",
+        "value": 3
+      },
+      {
+        "name": "ﾊﾞｯｸｴﾝﾄﾞｱﾌﾟﾘ",
+        "value": 3
+      },
+      {
+        "name": "組み込み",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "title": "開発or管理",
+    "titleEn": "developmentOrManagement",
+    "data": [
+      {
+        "name": "Developer",
+        "value": 8
+      },
+      {
+        "name": "Manager or Leader",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "title": "ソフトスキル",
+    "titleEn": "softSkills",
+    "data": [
+      {
+        "name": "コミュニケーション",
+        "value": 5
+      },
+      {
+        "name": "オープンな姿勢",
+        "value": 8
+      },
+      {
+        "name": "問題解決能力",
+        "value": 5
+      },
+      {
+        "name": "批判的思考",
+        "value": 5
+      },
+      {
+        "name": "適応力",
+        "value": 8
+      },
+      {
+        "name": "情報整理力",
+        "value": 8
+      },
+      {
+        "name": "学習意欲",
+        "value": 8
+      }
+    ]
+  }
+]
