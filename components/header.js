@@ -1,23 +1,17 @@
 import { useState } from "react";
-import { animateScroll, scroller } from "react-scroll";
+
+export const scrollToWorks = "works";
+export const scrollToSkills = "skills";
+export const scrollToProducts = "products";
 
 const navItems = [
-  { to: "works", caption: "職務経歴" },
-  { to: "skills", caption: "技術スタック" },
-  { to: "products", caption: "Products" },
+  { to: scrollToWorks, caption: "職務経歴" },
+  { to: scrollToSkills, caption: "技術スタック" },
+  { to: scrollToProducts, caption: "Products" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleNavClick = (to) => {
-    setIsMenuOpen(false);
-    if (to === "top") {
-      animateScroll.scrollToTop({});
-    } else {
-      scroller.scrollTo(to);
-    }
-  };
 
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-[1000]">
@@ -26,7 +20,7 @@ const Header = () => {
           <div className="flex items-center justify-between h-full">
             <a
               className="text-lg font-bold text-neutral-900 cursor-pointer"
-              onClick={() => handleNavClick("top")}
+              href="#"
             >
               Yoshi K &apos;s Portfolio.
             </a>
@@ -52,7 +46,7 @@ const Header = () => {
                 <li key={index}>
                   <a
                     className="px-4 py-2 rounded-lg font-medium transition-colors duration-150 hover:bg-neutral-100 cursor-pointer"
-                    onClick={() => handleNavClick(item.to)}
+                    href={"#" + item.to}
                   >
                     {item.caption}
                   </a>

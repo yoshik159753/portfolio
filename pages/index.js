@@ -1,9 +1,11 @@
-import { Element } from "react-scroll";
-
 import fs from "fs";
 import path from "path";
 
-import Header from "@/components/header";
+import Header, {
+  scrollToWorks,
+  scrollToSkills,
+  scrollToProducts,
+} from "@/components/header";
 import Footer from "@/components/footer";
 import Profile from "@/components/profile";
 import Works from "@/components/works";
@@ -12,10 +14,6 @@ import Skills from "@/components/skills";
 import Products from "@/components/products";
 
 import styles from "@/pages/index.module.css";
-
-export const scrollToWorks = "works";
-export const scrollToSkills = "skills";
-export const scrollToProducts = "products";
 
 export const BorderBlcok = ({ children }) => {
   return <div className={`border rounded ${styles.block}`}>{children}</div>;
@@ -38,26 +36,22 @@ const Index = ({ profile, works, skillSummary, skills }) => {
           <Profile>{profile}</Profile>
         </BorderBlcok>
 
-        <div className={styles.contentBlock}>
-          <Element name={scrollToWorks}>
-            <Title>職務経歴</Title>
-            <div className={styles.blockWithTitle}>
-              <BorderBlcok>
-                <Works>{works}</Works>
-              </BorderBlcok>
-            </div>
-          </Element>
+        <div id={scrollToWorks} className={styles.contentBlock}>
+          <Title>職務経歴</Title>
+          <div className={styles.blockWithTitle}>
+            <BorderBlcok>
+              <Works>{works}</Works>
+            </BorderBlcok>
+          </div>
         </div>
 
-        <div className={styles.contentBlock}>
-          <Element name={scrollToSkills}>
-            <Title>技術スタック概要</Title>
-            <div className={styles.blockWithTitle}>
-              <BorderBlcok>
-                <SkillSummary skillSummary={skillSummary} />
-              </BorderBlcok>
-            </div>
-          </Element>
+        <div id={scrollToSkills} className={styles.contentBlock}>
+          <Title>技術スタック概要</Title>
+          <div className={styles.blockWithTitle}>
+            <BorderBlcok>
+              <SkillSummary skillSummary={skillSummary} />
+            </BorderBlcok>
+          </div>
         </div>
 
         <div className={styles.contentBlock}>
@@ -69,13 +63,11 @@ const Index = ({ profile, works, skillSummary, skills }) => {
           </div>
         </div>
 
-        <div className={styles.contentBlock}>
-          <Element name={scrollToProducts}>
-            <Title>Products</Title>
-            <div className={styles.blockWithTitle}>
-              <Products />
-            </div>
-          </Element>
+        <div id={scrollToProducts} className={styles.contentBlock}>
+          <Title>Products</Title>
+          <div className={styles.blockWithTitle}>
+            <Products />
+          </div>
         </div>
       </main>
       <Footer />
