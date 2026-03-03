@@ -1,11 +1,34 @@
+import { Element } from "react-scroll";
+
 import fs from "fs";
 import path from "path";
 
-import Index_, { BorderBlcok } from "../components/pages/index/index";
-import Profile from "@/components/pages/index/profile";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import GoTop from "@/components/goTop";
+import Profile from "@/components/pages/index/profile";
+import Works from "@/components/pages/index/works";
+import SkillSummary from "@/components/pages/index/skillSummary";
+import Skills from "@/components/pages/index/skills";
+import Products from "@/components/pages/index/products";
+
+import styles from "@/pages/index.module.css";
+
+export const scrollToWorks = "works";
+export const scrollToSkills = "skills";
+export const scrollToProducts = "products";
+
+export const BorderBlcok = ({ children }) => {
+  return <div className={`border rounded ${styles.block}`}>{children}</div>;
+};
+
+const Title = ({ children }) => {
+  return (
+    <div className={styles.title}>
+      <h2>{children}</h2>
+    </div>
+  );
+};
 
 const Index = ({ profile, works, skillSummary, skills }) => {
   return (
@@ -15,7 +38,46 @@ const Index = ({ profile, works, skillSummary, skills }) => {
         <BorderBlcok>
           <Profile>{profile}</Profile>
         </BorderBlcok>
-        <Index_ works={works} skillSummary={skillSummary} skills={skills} />
+
+        <div className={styles.contentBlock}>
+          <Element name={scrollToWorks}>
+            <Title>職務経歴</Title>
+            <div className={styles.blockWithTitle}>
+              <BorderBlcok>
+                <Works>{works}</Works>
+              </BorderBlcok>
+            </div>
+          </Element>
+        </div>
+
+        <div className={styles.contentBlock}>
+          <Element name={scrollToSkills}>
+            <Title>技術スタック概要</Title>
+            <div className={styles.blockWithTitle}>
+              <BorderBlcok>
+                <SkillSummary skillSummary={skillSummary} />
+              </BorderBlcok>
+            </div>
+          </Element>
+        </div>
+
+        <div className={styles.contentBlock}>
+          <Title>技術スタック</Title>
+          <div className={styles.blockWithTitle}>
+            <BorderBlcok>
+              <Skills>{skills}</Skills>
+            </BorderBlcok>
+          </div>
+        </div>
+
+        <div className={styles.contentBlock}>
+          <Element name={scrollToProducts}>
+            <Title>Products</Title>
+            <div className={styles.blockWithTitle}>
+              <Products />
+            </div>
+          </Element>
+        </div>
       </main>
       <Footer />
       <GoTop />
