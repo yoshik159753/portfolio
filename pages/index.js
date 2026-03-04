@@ -12,20 +12,6 @@ import SkillSummary from "@/components/skillSummary";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
 
-import styles from "@/pages/index.module.css";
-
-export const BorderBlcok = ({ children }) => {
-  return <div className={`border rounded ${styles.block}`}>{children}</div>;
-};
-
-const Title = ({ children }) => {
-  return (
-    <div className={styles.title}>
-      <h2>{children}</h2>
-    </div>
-  );
-};
-
 const Index = ({ profile, profile2, works, skillSummary, skills }) => {
   return (
     <>
@@ -33,50 +19,45 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
         <HeaderBody />
       </header>
 
-      <main className="pt-20 pb-12 max-w-[720px] mx-auto px-4">
-        <BorderBlcok>
-          <Profile>{profile}</Profile>
-        </BorderBlcok>
+      <main className="pt-16">
+        <section
+          className="min-h-[calc(100vh-4rem)] flex items-center bg-white"
+          id="profile"
+        >
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <Profile>{profile}</Profile>
+          </div>
+        </section>
 
-        <div className="mt-10">
-          <BorderBlcok>
+        <section className="py-16 bg-neutral-100" id="profile2">
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Profile>{profile2}</Profile>
-          </BorderBlcok>
-        </div>
-
-        <div id={scrollToWorks} className={styles.contentBlock}>
-          <Title>職務経歴</Title>
-          <div className={styles.blockWithTitle}>
-            <BorderBlcok>
-              <Works>{works}</Works>
-            </BorderBlcok>
           </div>
-        </div>
+        </section>
 
-        <div id={scrollToSkills} className={styles.contentBlock}>
-          <Title>技術スタック概要</Title>
-          <div className={styles.blockWithTitle}>
-            <BorderBlcok>
-              <SkillSummary skillSummary={skillSummary} />
-            </BorderBlcok>
+        <section className="py-16 bg-white" id={scrollToWorks}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <Works>{works}</Works>
           </div>
-        </div>
+        </section>
 
-        <div className={styles.contentBlock}>
-          <Title>技術スタック</Title>
-          <div className={styles.blockWithTitle}>
-            <BorderBlcok>
-              <Skills>{skills}</Skills>
-            </BorderBlcok>
+        <section className="py-16 bg-neutral-100" id={scrollToSkills}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <SkillSummary skillSummary={skillSummary} />
           </div>
-        </div>
+        </section>
 
-        <div id={scrollToProducts} className={styles.contentBlock}>
-          <Title>Products</Title>
-          <div className={styles.blockWithTitle}>
+        <section className="py-16 bg-white" id={scrollToWorks}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <Skills>{skills}</Skills>
+          </div>
+        </section>
+
+        <section className="py-16 bg-neutral-100" id={scrollToProducts}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Products />
           </div>
-        </div>
+        </section>
       </main>
 
       <footer className="mt-auto bg-neutral-800 text-white py-8">
