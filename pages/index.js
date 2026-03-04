@@ -40,11 +40,13 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
             <Profile>{profile}</Profile>
           </div>
           <span
-            className={`absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-2xl text-neutral-500 transition-opacity duration-300 animate-bounce ${
-              isAtTop ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute bottom-6 left-1/2 -translate-x-1/2
+              flex flex-col items-center gap-1 text-neutral-500 animate-bounce
+              transition-opacity duration-300
+              ${isAtTop ? "opacity-100" : "opacity-0"}`}
             aria-label="スクロールして続きを見る"
           >
+            <span className="text-xs tracking-widest">scroll</span>
             <FontAwesomeIcon icon={faAnglesDown} />
           </span>
         </section>
