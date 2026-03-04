@@ -1,82 +1,92 @@
+import { useState, useEffect } from "react";
 import fs from "fs";
 import path from "path";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
-import Header, {
+import HeaderBody, {
   scrollToWorks,
   scrollToSkills,
   scrollToProducts,
-} from "@/components/header";
-import Footer from "@/components/footer";
+} from "@/components/headerBody";
 import Profile from "@/components/profile";
 import Works from "@/components/works";
 import SkillSummary from "@/components/skillSummary";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
 
-import styles from "@/pages/index.module.css";
-
-export const BorderBlcok = ({ children }) => {
-  return <div className={`border rounded ${styles.block}`}>{children}</div>;
-};
-
-const Title = ({ children }) => {
-  return (
-    <div className={styles.title}>
-      <h2>{children}</h2>
-    </div>
-  );
-};
-
 const Index = ({ profile, profile2, works, skillSummary, skills }) => {
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => setIsAtTop(window.scrollY < 30), {
+      passive: true,
+    });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <Header />
-      <main className="pt-20 pb-12 max-w-[720px] mx-auto px-4">
-        <BorderBlcok>
-          <Profile>{profile}</Profile>
-        </BorderBlcok>
+      <header className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-[1000]">
+        <HeaderBody />
+      </header>
 
-        <div className="mt-10">
-          <BorderBlcok>
+      <main className="pt-16">
+        <section
+          className="min-h-[calc(100vh-4rem)] flex items-center bg-white relative"
+          id="profile"
+        >
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <Profile>{profile}</Profile>
+          </div>
+          <span
+            className={`absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-2xl text-neutral-500 transition-opacity duration-300 animate-bounce ${
+              isAtTop ? "opacity-100" : "opacity-0"
+            }`}
+            aria-label="スクロールして続きを見る"
+          >
+            <FontAwesomeIcon icon={faAnglesDown} />
+          </span>
+        </section>
+
+        <section className="py-16 bg-neutral-100" id="profile2">
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Profile>{profile2}</Profile>
-          </BorderBlcok>
-        </div>
-
-        <div id={scrollToWorks} className={styles.contentBlock}>
-          <Title>職務経歴</Title>
-          <div className={styles.blockWithTitle}>
-            <BorderBlcok>
-              <Works>{works}</Works>
-            </BorderBlcok>
           </div>
-        </div>
+        </section>
 
-        <div id={scrollToSkills} className={styles.contentBlock}>
-          <Title>技術スタック概要</Title>
-          <div className={styles.blockWithTitle}>
-            <BorderBlcok>
-              <SkillSummary skillSummary={skillSummary} />
-            </BorderBlcok>
+        <section className="py-16 bg-white" id={scrollToWorks}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <Works>{works}</Works>
           </div>
-        </div>
+        </section>
 
-        <div className={styles.contentBlock}>
-          <Title>技術スタック</Title>
-          <div className={styles.blockWithTitle}>
-            <BorderBlcok>
-              <Skills>{skills}</Skills>
-            </BorderBlcok>
+        <section className="py-16 bg-neutral-100" id={scrollToSkills}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <SkillSummary skillSummary={skillSummary} />
           </div>
-        </div>
+        </section>
 
-        <div id={scrollToProducts} className={styles.contentBlock}>
-          <Title>Products</Title>
-          <div className={styles.blockWithTitle}>
+        <section className="py-16 bg-white" id={scrollToWorks}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
+            <Skills>{skills}</Skills>
+          </div>
+        </section>
+
+        <section className="py-16 bg-neutral-100" id={scrollToProducts}>
+          <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Products />
           </div>
-        </div>
+        </section>
       </main>
-      <Footer />
+
+      <footer className="mt-auto bg-neutral-800 text-white py-8">
+        <div className="max-w-[960px] mx-auto px-4">
+          <div className="text-right">
+            <p className="text-neutral-400 text-sm">Last Update: Nov 2022</p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };

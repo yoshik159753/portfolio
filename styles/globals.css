@@ -1,18 +1,1 @@
 @import "tailwindcss";
-
-html,
-body,
-div#__next {
-  /* sticky-footer 対応 */
-  height: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-div#__next {
-  /* sticky-footer 対応 */
-  display: flex;
-  flex-direction: column;
-}

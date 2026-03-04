@@ -10,10 +10,10 @@ import howManyPersonHourImg from "@/public/images/products/how_many_person_hour.
 
 const Card = ({ img, title, text, tech, link }) => {
   return (
-    <div className={`border rounded overflow-hidden ${styles.card}`}>
+    <div className={`rounded overflow-hidden ${styles.card}`}>
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/3">
-          <div className="pl-6 pr-6 md:pr-0 pt-4 pb-4">
+          <div className="md:pr-0 pt-4 pb-4">
             <Image
               src={img}
               alt="preview"
@@ -21,11 +21,12 @@ const Card = ({ img, title, text, tech, link }) => {
                 width: "100%",
                 height: "auto",
                 maxWidth: "100%",
-              }} />
+              }}
+            />
           </div>
         </div>
         <div className="md:w-2/3">
-          <div className="py-4 md:py-4 px-12 md:px-4">
+          <div className="py-4 md:py-4 md:px-4">
             <h5 className="text-xl font-semibold mb-2">{title}</h5>
             <p className="mb-4">{text}</p>
             <p className="mb-4">使用技術: {tech}</p>
@@ -68,9 +69,7 @@ const Products = () => {
       text: `React の素振りとして、 Flask のチュートリアルを React で再現しています。
       バックエンドは Flask アプリを Heroku にデプロイし、フロントエンドは React アプリを Vercel にデプロイしています。(heroku の無料枠終了に伴い停止中)`,
       tech: `Python, Flask, React, Heroku, Vercel`,
-      link: (
-        <span>停止中</span>
-      ),
+      link: <span>停止中</span>,
     },
     {
       img: howManyPersonHourImg,
