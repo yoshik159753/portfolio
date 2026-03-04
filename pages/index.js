@@ -1,12 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-import Header, {
+import HeaderBody, {
   scrollToWorks,
   scrollToSkills,
   scrollToProducts,
-} from "@/components/header";
-import Footer from "@/components/footer";
+} from "@/components/headerBody";
 import Profile from "@/components/profile";
 import Works from "@/components/works";
 import SkillSummary from "@/components/skillSummary";
@@ -30,7 +29,10 @@ const Title = ({ children }) => {
 const Index = ({ profile, profile2, works, skillSummary, skills }) => {
   return (
     <>
-      <Header />
+      <header className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-[1000]">
+        <HeaderBody />
+      </header>
+
       <main className="pt-20 pb-12 max-w-[720px] mx-auto px-4">
         <BorderBlcok>
           <Profile>{profile}</Profile>
@@ -76,7 +78,14 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
           </div>
         </div>
       </main>
-      <Footer />
+
+      <footer className="mt-auto bg-neutral-800 text-white py-8">
+        <div className="max-w-[960px] mx-auto px-4">
+          <div className="text-right">
+            <p className="text-neutral-400 text-sm">Last Update: Nov 2022</p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
