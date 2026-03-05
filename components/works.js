@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Markdown from "@/components/markdown/markdown";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import markdownStyles from "@/components/markdown/markdown.module.css";
+import styles from "@/components/works.module.css";
 
 const Works = ({ children }) => {
   const [isClosed, setIsClosed] = useState(true);
+
+  // h1 タグを外だし(タイムライン縦線の対象外とするため)
+  const title = children.match(/^#\s+(.+)/m)?.[1] ?? "";
 
   return (
     <div>
@@ -14,7 +21,18 @@ const Works = ({ children }) => {
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="relative overflow-hidden"
       >
-        <Markdown>{children}</Markdown>
+        <div className={markdownStyles.reactMarkDown}>
+          <h1>{title}</h1>
+          <div className={styles.timeline}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              components={{ h1: () => null }}
+            >
+              {children}
+            </ReactMarkdown>
+          </div>
+        </div>
         <AnimatePresence>
           {isClosed && (
             <motion.div
