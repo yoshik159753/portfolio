@@ -1,127 +1,67 @@
-import { useState, useEffect, useCallback, useRef } from "react";
-import Markdown from "@/components/markdown/markdown";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
-
-import styles from "./works.module.css";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import markdownStyles from "@/components/markdown/markdown.module.css";
+import styles from "@/components/works.module.css";
 
 const Works = ({ children }) => {
-  const [maxHeight, setMaxHeight] = useState(0);
-  const currentState = useRef(null);
-  const refTransitionBlcok = useRef(null);
-  const [handleButtonCaption, setHandleButtonCaption] = useState("");
+  const [isClosed, setIsClosed] = useState(true);
 
-  const measuredRef = useCallback((node) => {
-    if (node !== null) {
-      setMaxHeight(node.getBoundingClientRect().height);
-    }
-  }, []);
-
-  useEffect(() => {
-    handleClosed();
-  }, []);
-
-  const handleClosed = () => {
-    currentState.current = "CLOSED";
-    setHandleButtonCaption(
-      <>
-        <FontAwesomeIcon icon={faAngleDown} />
-        <span className="ml-2">開く</span>
-      </>
-    );
-    refTransitionBlcok.current.className = styles.close;
-    refTransitionBlcok.current.style.height = "2000px";
-  };
-
-  const handleToOpen = () => {
-    currentState.current = "TO_OPEN";
-    setHandleButtonCaption("");
-    refTransitionBlcok.current.className = styles.move;
-    setTimeout(() => {
-      handleToNext();
-    }, 1);
-  };
-
-  const handleOpening = () => {
-    currentState.current = "OPENING";
-    refTransitionBlcok.current.style.height = `${maxHeight}px`;
-    setTimeout(() => {
-      handleToNext();
-    }, 1000);
-  };
-
-  const handleOpened = () => {
-    currentState.current = "OPENED";
-    setHandleButtonCaption(
-      <>
-        <FontAwesomeIcon icon={faAngleUp} />
-        <span className="ml-2">閉じる</span>
-      </>
-    );
-    refTransitionBlcok.current.className = "";
-    refTransitionBlcok.current.style.height = "auto";
-  };
-
-  const handleToClose = () => {
-    currentState.current = "TO_CLOSE";
-    setHandleButtonCaption("");
-    refTransitionBlcok.current.className = styles.move;
-    refTransitionBlcok.current.style.height = `${maxHeight}px`;
-    setTimeout(() => {
-      handleToNext();
-    }, 1);
-  };
-
-  const handleClosing = () => {
-    currentState.current = "CLOSING";
-    refTransitionBlcok.current.style.height = "2000px";
-    setTimeout(() => {
-      handleToNext();
-    }, 1000);
-  };
-
-  const handleToNext = () => {
-    switch (currentState.current) {
-      case "CLOSED":
-        handleToOpen();
-        return;
-      case "TO_OPEN":
-        handleOpening();
-        return;
-      case "OPENING":
-        handleOpened();
-        return;
-      case "OPENED":
-        handleToClose();
-        return;
-      case "TO_CLOSE":
-        handleClosing();
-        return;
-      case "CLOSING":
-        handleClosed();
-        return;
-      default:
-        // TODO: 例外投げる
-        return;
-    }
-  };
+  // h1 タグを外だし(タイムライン縦線の対象外とするため)
+  const title = children.match(/^#\s+(.+)/m)?.[1] ?? "";
 
   return (
-    <div className={styles.showMoreRoot} ref={measuredRef}>
-      <div ref={refTransitionBlcok}>
-        <Markdown>{children}</Markdown>
-      </div>
-      <div className="flex justify-center">
-        {handleButtonCaption ? (
+    <div>
+      <motion.div
+        animate={{ height: isClosed ? 1200 : "auto" }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="relative overflow-hidden"
+      >
+        <div className={markdownStyles.reactMarkDown}>
+          <h1>{title}</h1>
+          <div className={styles.timeline}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              components={{ h1: () => null }}
+            >
+              {children}
+            </ReactMarkdown>
+          </div>
+        </div>
+        <AnimatePresence>
+          {isClosed && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
+            />
+          )}
+        </AnimatePresence>
+      </motion.div>
+      {isClosed && (
+        <div className="flex justify-center mt-4">
           <button
             type="button"
-            className="w-3/4 border rounded bg-gray-100 py-2 px-4 text-lg cursor-pointer"
-            onClick={handleToNext}
+            className="flex items-center gap-2
+                      px-8 py-2
+                      border border-neutral-400 rounded-full
+                      text-neutral-500 text-sm tracking-widest
+                      hover:border-neutral-600 hover:text-neutral-700
+                      transition-colors duration-200
+                      cursor-pointer"
+            onClick={() => setIsClosed(false)}
           >
-            {handleButtonCaption}
+            <span>show more...</span>
+            <FontAwesomeIcon icon={faAngleDown} />
           </button>
-        ) : null}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

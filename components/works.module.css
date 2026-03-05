@@ -1,37 +1,46 @@
-.showMoreRoot {
+/* タイムライン縦棒 */
+.timeline {
   position: relative;
+  padding-left: 1.25rem;
+  margin-left: 0.25rem;
 }
 
-.close {
-  position: relative;
-  overflow: hidden;
+@media (min-width: 768px) {
+  .timeline {
+    padding-left: 3rem;
+  }
 }
 
-.close::before {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.timeline::before {
   content: "";
-  width: 100%;
-  height: 100px; /*グラデーションで隠す範囲*/
-  background: linear-gradient(
-    top,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255, 255, 255, 0.9) 50%,
-    #fff 100%
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.9) 50%,
-    rgba(255, 255, 255, 0.9) 50%,
-    #fff 100%
-  );
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #e5e5e5;
 }
 
-.move {
-  transition: height 1s linear;
-  overflow: hidden;
+/* 各案件の丸点 */
+.timeline h3 {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline h3::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: calc(-1.44rem);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #404040;
+}
+
+@media (min-width: 768px) {
+  .timeline h3::before {
+    left: calc(-3.2rem);
+  }
 }
