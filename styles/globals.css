@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold mb-2 leading-tight;
+  }
+
+  h1 {
+    font-size: clamp(1.325rem, 1.325rem + 0.9vw, 2rem);
+  }
+
+  h2 {
+    @apply mt-6;
+    font-size: clamp(1.3rem, 1.3rem + 0.6vw, 1.75rem);
+  }
+
+  h3 {
+    @apply mt-6 border-b border-[#212529] pb-1 mb-4;
+    font-size: clamp(1.275rem, 1.275rem + 0.3vw, 1.5rem);
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-base;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  ul {
+    @apply list-disc pl-8 mb-4;
+  }
+
+  ol {
+    @apply list-decimal pl-8 mb-4;
+  }
+
+  li {
+    @apply mb-1;
+  }
+
+  a img {
+    @apply inline-block;
+  }
+
+  table {
+    @apply w-full mb-4 border border-[#dee2e6] text-[#212529];
+  }
+
+  thead th {
+    @apply align-bottom border-b-2 border-[#dee2e6];
+  }
+
+  td,
+  th {
+    @apply border border-[#dee2e6] py-1 px-3 align-top;
+  }
+}

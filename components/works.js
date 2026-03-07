@@ -5,7 +5,6 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import markdownStyles from "@/components/markdown/markdown.module.css";
 import styles from "@/components/works.module.css";
 
 const Works = ({ children }) => {
@@ -21,17 +20,15 @@ const Works = ({ children }) => {
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="relative overflow-hidden"
       >
-        <div className={markdownStyles.reactMarkDown}>
-          <h1>{title}</h1>
-          <div className={styles.timeline}>
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw]}
-              components={{ h1: () => null }}
-            >
-              {children}
-            </ReactMarkdown>
-          </div>
+        <h1>{title}</h1>
+        <div className={styles.timeline}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={{ h1: () => null }}
+          >
+            {children}
+          </ReactMarkdown>
         </div>
         <AnimatePresence>
           {isClosed && (
