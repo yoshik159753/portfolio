@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const scrollToWorks = "works";
 export const scrollToSkills = "skills";
 export const scrollToProducts = "products";
@@ -19,29 +21,34 @@ const HeaderBody = () => {
           >
             Yoshi K &apos;s Portfolio.
           </a>
-          <ul className="hidden md:flex md:flex-row md:items-center">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <a
-                  className="px-4 py-2 rounded-lg font-medium transition-colors duration-150 hover:bg-neutral-100"
-                  href={"#" + item.to}
-                >
-                  {item.caption}
-                </a>
-              </li>
-            ))}
-            <li className="w-px h-5 mx-2 bg-neutral-200"></li>
-            <li>
-              <a
-                href="https://github.com/yoshik159753/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg font-medium transition-colors duration-150 hover:bg-neutral-100"
-              >
-                GitHub
-              </a>
-            </li>
-          </ul>
+          <div className="flex items-center gap-2">
+            <ul className="list-none hidden md:flex md:flex-row md:items-center">
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a
+                    className="px-4 py-2 rounded-lg font-medium transition-colors duration-200 hover:bg-neutral-100"
+                    href={"#" + item.to}
+                  >
+                    {item.caption}
+                  </a>
+                </li>
+              ))}
+              <li className="w-px h-5 mx-2 bg-neutral-200"></li>
+            </ul>
+            <a
+              href="https://github.com/yoshik159753/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg transition-colors duration-200 hover:bg-neutral-100"
+            >
+              <Image
+                src="/images/icons/github.svg"
+                alt="github"
+                width={25}
+                height={25}
+              />
+            </a>
+          </div>
         </div>
       </div>
     </nav>

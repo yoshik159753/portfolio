@@ -1,4 +1,4 @@
-import Markdown from "@/components/markdown/markdown";
+import Markdown from "@/components/markdown";
 
 const Profile = ({ children }) => {
   return <Markdown>{children}</Markdown>;
