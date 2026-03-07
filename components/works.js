@@ -10,8 +10,8 @@ import styles from "@/components/works.module.css";
 const Works = ({ children }) => {
   const [isClosed, setIsClosed] = useState(true);
 
-  // h1 タグを外だし(タイムライン縦線の対象外とするため)
-  const title = children.match(/^#\s+(.+)/m)?.[1] ?? "";
+  // 見出しを外だし(タイムライン縦線の対象外とするため)
+  const title = children.match(/^##\s+(.+)/m)?.[1] ?? "";
 
   return (
     <div>
@@ -20,12 +20,12 @@ const Works = ({ children }) => {
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="relative overflow-hidden"
       >
-        <h1>{title}</h1>
+        <h2 className="mb-4">{title}</h2>
         <div className={styles.timeline}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
-            components={{ h1: () => null }}
+            components={{ h2: () => null }}
           >
             {children}
           </ReactMarkdown>
