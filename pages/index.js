@@ -11,7 +11,6 @@ import HeaderBody, {
 } from "@/components/headerBody";
 import Profile from "@/components/profile";
 import Works from "@/components/works";
-import SkillSummary from "@/components/skillSummary";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
 
@@ -65,17 +64,11 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
 
         <section className="py-16 bg-neutral-100" id={scrollToSkills}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
-            <SkillSummary skillSummary={skillSummary} />
+            <Skills skillSummary={skillSummary}>{skills}</Skills>
           </div>
         </section>
 
-        <section className="py-16 bg-white" id={scrollToWorks}>
-          <div className="max-w-[720px] mx-auto px-4 md:px-0">
-            <Skills>{skills}</Skills>
-          </div>
-        </section>
-
-        <section className="py-16 bg-neutral-100" id={scrollToProducts}>
+        <section className="py-16 bg-white" id={scrollToProducts}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Products />
           </div>
