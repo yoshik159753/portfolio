@@ -1,36 +1,54 @@
 import Image from "next/image";
 
-import styles from "./products.module.css";
-
-// ref. https://stackoverflow.com/questions/29722270/is-it-possible-to-import-modules-from-all-files-in-a-directory-using-a-wildcard
 import portfolioImg from "@/public/images/products/portfolio.png";
-import flaskrImg from "@/public/images/products/flaskr.png";
 import nixTipsImg from "@/public/images/products/nix-tips.png";
-import howManyPersonHourImg from "@/public/images/products/how_many_person_hour.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Card = ({ img, title, text, tech, link }) => {
   return (
-    <div className={`rounded overflow-hidden ${styles.card}`}>
+    <div
+      className="bg-white overflow-hidden
+                border border-neutral-200  rounded-xl
+                transition-all duration-300
+                hover:border-neutral-300 hover:-translate-y-1 hover:shadow-xs"
+    >
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/3">
-          <div className="md:pr-0 pt-4 pb-4">
+          <div className="relative w-full h-48 md:min-h-[150px] md:h-full">
             <Image
               src={img}
               alt="preview"
-              style={{
-                width: "100%",
-                height: "auto",
-                maxWidth: "100%",
-              }}
+              fill
+              style={{ objectFit: "cover", objectPosition: "top center" }}
             />
           </div>
         </div>
         <div className="md:w-2/3">
-          <div className="py-4 md:py-4 md:px-4">
-            <h5 className="text-xl font-semibold mb-2">{title}</h5>
-            <p className="mb-4">{text}</p>
-            <p className="mb-4">使用技術: {tech}</p>
-            <div>{link}</div>
+          <div className="px-4 pt-2 pb-4 md:pb-2 flex flex-col flex-grow">
+            <h5 className="font-semibold">{title}</h5>
+            <div className="mt-1 text-sm">{text}</div>
+            <div className="mt-2 text-sm">使用技術: {tech}</div>
+            {link && (
+              <div className="mt-4 flex">
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center justify-center gap-2
+                        w-full md:w-auto
+                        px-8 py-1
+                        border border-neutral-400 rounded-full
+                        text-neutral-500 text-sm tracking-widest
+                        hover:border-neutral-600 hover:text-neutral-700
+                        transition-colors duration-200
+                        cursor-pointer"
+                >
+                  <span>link</span>
+                  <FontAwesomeIcon icon={faAngleRight} />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -43,62 +61,37 @@ const Products = () => {
     {
       img: portfolioImg,
       title: "Portfolio",
-      text: `本ページです。`,
-      tech: `Next.js, Vercel`,
-      link: <a href="https://portfolio-yoshik159753.vercel.app/">Link</a>,
+      text: "本ページです。",
+      tech: "Next.js, tailwindcss, Vercel",
+      link: "",
     },
     {
       img: nixTipsImg,
-      title: "*nix tips",
-      text: `よく使用する Unix や Linux のコマンド、また各種プログラミングの言語の Tips をまとめたサイトです。
-      メンテナンス性や表現力が高い Asciidoc を使用しています。`,
-      tech: `Asciidoc, GitHub Pages`,
-      link: (
-        <a
-          href="https://yoshik159753.github.io/dev-tips/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Link
-        </a>
-      ),
-    },
-    {
-      img: flaskrImg,
-      title: "Flaskr with React",
-      text: `React の素振りとして、 Flask のチュートリアルを React で再現しています。
-      バックエンドは Flask アプリを Heroku にデプロイし、フロントエンドは React アプリを Vercel にデプロイしています。(heroku の無料枠終了に伴い停止中)`,
-      tech: `Python, Flask, React, Heroku, Vercel`,
-      link: <span>停止中</span>,
-    },
-    {
-      img: howManyPersonHourImg,
-      title: "How many person hour?",
-      text: "React の素振りとして作成した工数算出ツールです。",
-      tech: `React, Vercel`,
-      link: (
-        <a
-          href="https://how-many-person-hour.vercel.app/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Link
-        </a>
-      ),
+      title: "dev tips",
+      text: `個人的な開発に関する Tips をまとめたサイトです。
+            メンテナンス性や表現力が高い Asciidoc を使用しています。`,
+      tech: "Asciidoc, 11ty, Vercel",
+      link: "https://dev-tips.pleasurecode.jp/",
     },
   ];
 
-  return cards.map((card, index) => (
-    <div className={`${styles.cards}`} key={index}>
-      <Card
-        img={card.img}
-        title={card.title}
-        text={card.text}
-        tech={card.tech}
-        link={card.link}
-      />
-    </div>
-  ));
+  return (
+    <>
+      <h2>作品</h2>
+      <div className="flex flex-col gap-6">
+        {cards.map((card, index) => (
+          <Card
+            img={card.img}
+            title={card.title}
+            text={card.text}
+            tech={card.tech}
+            link={card.link}
+            key={index}
+          />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default Products;
