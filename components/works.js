@@ -45,7 +45,8 @@ const Works = ({ children }) => {
         <div className="flex justify-center mt-4">
           <button
             type="button"
-            className="flex items-center gap-2
+            className="flex items-center justify-center gap-2
+                      w-full md:w-auto
                       px-8 py-2
                       border border-neutral-400 rounded-full
                       text-neutral-500 text-sm tracking-widest
