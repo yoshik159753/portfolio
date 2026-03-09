@@ -14,7 +14,7 @@ import Works from "@/components/works";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
 
-const Index = ({ profile, profile2, works, skillSummary, skills }) => {
+const Index = ({ profile, profile2, works }) => {
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
 
         <section className="py-16 bg-neutral-100" id={scrollToSkills}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
-            <Skills skillSummary={skillSummary}>{skills}</Skills>
+            <Skills />
           </div>
         </section>
 
@@ -99,18 +99,8 @@ export async function getServerSideProps() {
     path.join(process.cwd(), "content", "works.md"),
     "utf-8"
   );
-  const skillSummary = JSON.parse(
-    fs.readFileSync(
-      path.join(process.cwd(), "content", "skillSummary.json"),
-      "utf-8"
-    )
-  );
-  const skills = fs.readFileSync(
-    path.join(process.cwd(), "content", "skills.md"),
-    "utf-8"
-  );
   return {
-    props: { profile, profile2, works, skillSummary, skills },
+    props: { profile, profile2, works },
   };
 }
 
