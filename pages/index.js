@@ -86,7 +86,7 @@ const Index = ({ profile, profile2, works }) => {
               各商標は各社に帰属
             </div>
             <div className="text-neutral-400 text-sm md:shrink-0 self-end md:self-auto">
-              Last Update: Nov 2022
+              Last Update: Mar 2026
             </div>
           </div>
         </div>
