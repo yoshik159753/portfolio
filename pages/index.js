@@ -14,7 +14,7 @@ import Works from "@/components/works";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
 
-const Index = ({ profile, profile2, works, skillSummary, skills }) => {
+const Index = ({ profile, profile2, works }) => {
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
 
         <section className="py-16 bg-neutral-100" id={scrollToSkills}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
-            <Skills skillSummary={skillSummary}>{skills}</Skills>
+            <Skills />
           </div>
         </section>
 
@@ -77,8 +77,17 @@ const Index = ({ profile, profile2, works, skillSummary, skills }) => {
 
       <footer className="mt-auto bg-neutral-800 text-white py-8">
         <div className="max-w-[960px] mx-auto px-4">
-          <div className="text-right">
-            <p className="text-neutral-400 text-sm">Last Update: Nov 2022</p>
+          <div
+            className="flex flex-col gap-2 items-center
+                      md:flex-row md:justify-between"
+          >
+            <div className="text-neutral-500 text-xs">
+              Icons: Devicon, Simple Icons, Font Awesome Free |
+              各商標は各社に帰属
+            </div>
+            <div className="text-neutral-400 text-sm md:shrink-0 self-end md:self-auto">
+              Last Update: Mar 2026
+            </div>
           </div>
         </div>
       </footer>
@@ -99,18 +108,8 @@ export async function getServerSideProps() {
     path.join(process.cwd(), "content", "works.md"),
     "utf-8"
   );
-  const skillSummary = JSON.parse(
-    fs.readFileSync(
-      path.join(process.cwd(), "content", "skillSummary.json"),
-      "utf-8"
-    )
-  );
-  const skills = fs.readFileSync(
-    path.join(process.cwd(), "content", "skills.md"),
-    "utf-8"
-  );
   return {
-    props: { profile, profile2, works, skillSummary, skills },
+    props: { profile, profile2, works },
   };
 }
 
