@@ -77,8 +77,17 @@ const Index = ({ profile, profile2, works }) => {
 
       <footer className="mt-auto bg-neutral-800 text-white py-8">
         <div className="max-w-[960px] mx-auto px-4">
-          <div className="text-right">
-            <p className="text-neutral-400 text-sm">Last Update: Nov 2022</p>
+          <div
+            className="flex flex-col gap-2 items-center
+                      md:flex-row md:justify-between"
+          >
+            <div className="text-neutral-500 text-xs">
+              Icons: Devicon, Simple Icons, Font Awesome Free |
+              各商標は各社に帰属
+            </div>
+            <div className="text-neutral-400 text-sm md:shrink-0 self-end md:self-auto">
+              Last Update: Nov 2022
+            </div>
           </div>
         </div>
       </footer>
