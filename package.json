@@ -13,7 +13,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.0",
     "@fortawesome/free-solid-svg-icons": "^6.7.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "axios": "^1.7.0",
     "devicon": "^2.17.0",
     "motion": "^12.35.0",
     "next": "^15.5.12",
