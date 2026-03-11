@@ -28,7 +28,9 @@ const Card = ({ img, title, text, tech, link }) => {
           <div className="px-4 pt-2 pb-4 md:pb-2 flex flex-col flex-grow">
             <h5 className="font-semibold">{title}</h5>
             <div className="mt-1 text-sm">{text}</div>
-            <div className="mt-2 text-sm">使用技術: {tech}</div>
+            <div className="mt-2 text-sm flex items-center">
+              使用技術: <div className="ml-1 flex gap-1">{tech}</div>
+            </div>
             {link && (
               <div className="mt-4 flex">
                 <a
@@ -57,20 +59,28 @@ const Card = ({ img, title, text, tech, link }) => {
 };
 
 const Products = () => {
+  const Img = ({ src, alt }) => <img src={src} alt={alt} width="20" height="20" />
+
   const cards = [
     {
       img: portfolioImg,
       title: "Portfolio",
       text: "本ページです。",
-      tech: "Next.js, tailwindcss, Vercel",
+      tech:
+        <>
+          <Img src="/images/icons/nextjs.svg" alt="nextjs" /><Img src="/images/icons/tailwindcss.svg" alt="tailwindcss" /><Img src="/images/icons/vercel.svg" alt="vercel" />
+        </>,
       link: "",
     },
     {
       img: nixTipsImg,
       title: "dev tips",
       text: `個人的な開発に関する Tips をまとめたサイトです。
-            メンテナンス性や表現力が高い Asciidoc を使用しています。`,
-      tech: "Asciidoc, 11ty, Vercel",
+            メンテナンス性や表現力が高い Asciidoc(tor) と 11ty を組み合わせて使用しています。`,
+      tech:
+        <>
+          <Img src="/images/icons/asciidoctor.svg" alt="asciidoctor" /><Img src="/images/icons/eleventy.svg" alt="eleventy" /><Img src="/images/icons/vercel.svg" alt="vercel" />
+        </>,
       link: "https://dev-tips.pleasurecode.jp/",
     },
   ];

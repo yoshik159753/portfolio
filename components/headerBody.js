@@ -7,7 +7,7 @@ export const scrollToProducts = "products";
 const navItems = [
   { to: scrollToWorks, caption: "職務経歴" },
   { to: scrollToSkills, caption: "技術スタック" },
-  { to: scrollToProducts, caption: "Products" },
+  { to: scrollToProducts, caption: "作品" },
 ];
 
 const HeaderBody = () => {

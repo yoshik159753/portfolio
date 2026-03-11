@@ -33,6 +33,7 @@
 
 <a href="https://cloud.google.com/" target="_blank"> <img src="/images/icons/googlecloud.svg" alt="googlecloud" width="40" height="40"/> </a>
 <a href="https://aws.amazon.com" target="_blank"> <img src="/images/icons/aws.svg" alt="aws" width="40" height="40"/> </a>
+<a href="https://vercel.com/" target="_blank"> <img src="/images/icons/vercel.svg" alt="vercel" width="40" height="40"/> </a>
 
 ###### ツール
 
