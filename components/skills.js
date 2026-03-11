@@ -317,7 +317,7 @@ const Skills = () => {
         memo: "最終実務使用: 2020年ごろ",
       },
       {
-        name: "Asciidoc",
+        name: "Asciidoc(tor)",
         exp: "なし",
         level: { val: 3, max: 5 },
         memo: "プライベートで使用",
