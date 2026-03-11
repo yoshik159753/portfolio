@@ -76,7 +76,7 @@ const Products = () => {
       img: nixTipsImg,
       title: "dev tips",
       text: `個人的な開発に関する Tips をまとめたサイトです。
-            メンテナンス性や表現力が高い Asciidoc(tor) を使用しています。`,
+            メンテナンス性や表現力が高い Asciidoc(tor) と 11ty を組み合わせて使用しています。`,
       tech:
         <>
           <Img src="/images/icons/asciidoctor.svg" alt="asciidoctor" /><Img src="/images/icons/eleventy.svg" alt="eleventy" /><Img src="/images/icons/vercel.svg" alt="vercel" />
