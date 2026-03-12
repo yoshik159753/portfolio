@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
 import HeaderBody, {
+  scrollToSkillSummary,
   scrollToWorks,
-  scrollToSkills,
+  scrollToSkillSet,
   scrollToProducts,
 } from "@/components/headerBody";
 import Profile from "@/components/profile";
@@ -50,7 +51,7 @@ const Index = ({ profile, profile2, works }) => {
           </span>
         </section>
 
-        <section className="py-16 bg-neutral-100" id="profile2">
+        <section className="py-16 bg-neutral-100" id={scrollToSkillSummary}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Profile>{profile2}</Profile>
           </div>
@@ -62,7 +63,7 @@ const Index = ({ profile, profile2, works }) => {
           </div>
         </section>
 
-        <section className="py-16 bg-neutral-100" id={scrollToSkills}>
+        <section className="py-16 bg-neutral-100" id={scrollToSkillSet}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Skills />
           </div>
