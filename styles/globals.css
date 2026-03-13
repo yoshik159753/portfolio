@@ -48,17 +48,4 @@
   img:not(a img) {
     @apply inline-block;
   }
-
-  table {
-    @apply w-full border border-[#dee2e6] text-[#212529];
-  }
-
-  thead th {
-    @apply align-bottom border-b-2 border-[#dee2e6];
-  }
-
-  td,
-  th {
-    @apply border border-[#dee2e6] py-1 px-3 align-top;
-  }
 }
