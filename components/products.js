@@ -27,8 +27,8 @@ const Card = ({ img, title, text, tech, link }) => {
         <div className="md:w-2/3">
           <div className="px-4 pt-2 pb-4 md:pb-2 flex flex-col flex-grow">
             <h5 className="font-semibold">{title}</h5>
-            <div className="mt-1 text-sm">{text}</div>
-            <div className="mt-2 text-sm flex items-center">
+            <div className="mt-1">{text}</div>
+            <div className="mt-2 flex items-center">
               使用技術: <div className="ml-1 flex gap-1">{tech}</div>
             </div>
             {link && (
@@ -41,7 +41,7 @@ const Card = ({ img, title, text, tech, link }) => {
                         w-full md:w-auto
                         px-8 py-1
                         border border-neutral-400 rounded-full
-                        text-neutral-500 text-sm tracking-widest
+                        text-neutral-500 tracking-widest
                         hover:border-neutral-600 hover:text-neutral-700
                         transition-colors duration-200
                         cursor-pointer"

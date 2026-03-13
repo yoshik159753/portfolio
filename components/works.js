@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
+import Markdown from "@/components/markdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/components/works.module.css";
@@ -22,13 +20,7 @@ const Works = ({ children }) => {
       >
         <h2 className="mb-4">{title}</h2>
         <div className={styles.timeline}>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
-            components={{ h2: () => null }}
-          >
-            {children}
-          </ReactMarkdown>
+          <Markdown components={{ h2: () => null }}>{children}</Markdown>
         </div>
         <AnimatePresence>
           {isClosed && (
@@ -49,7 +41,7 @@ const Works = ({ children }) => {
                       w-full md:w-auto
                       px-8 py-2
                       border border-neutral-400 rounded-full
-                      text-neutral-500 text-sm tracking-widest
+                      text-neutral-500 tracking-widest
                       hover:border-neutral-600 hover:text-neutral-700
                       transition-colors duration-200
                       cursor-pointer"

@@ -23,7 +23,7 @@ const Table = ({ header, items }) => {
     <table
       className="table-fixed w-full border-collapse overflow-hidden
                 border border-neutral-200 rounded-lg
-                bg-white text-xs md:text-sm"
+                bg-white text-xs md:text-base"
     >
       <thead>
         <tr>

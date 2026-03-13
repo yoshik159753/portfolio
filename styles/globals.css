@@ -6,19 +6,19 @@
   }
 
   h2 {
-    @apply text-[2rem] font-bold;
-  }
-
-  h3 {
     @apply text-[1.75rem] font-bold;
   }
 
-  h4 {
+  h3 {
     @apply text-[1.5rem] font-bold;
   }
 
-  h5 {
+  h4 {
     @apply text-[1.25rem] font-bold;
+  }
+
+  h5 {
+    @apply text-[1.125rem] font-bold;
   }
 
   h6 {
@@ -37,14 +37,6 @@
     @apply my-1;
   }
 
-  p {
-    @apply mb-4;
-  }
-
-  em {
-    @apply text-neutral-500 text-sm;
-  }
-
   a:has(img) {
     @apply inline-flex;
   }
@@ -55,26 +47,5 @@
 
   img:not(a img) {
     @apply inline-block;
-  }
-
-  ul {
-    @apply list-disc pl-6 flex flex-col gap-1;
-  }
-
-  ol {
-    @apply list-decimal pl-6 flex flex-col gap-1;
-  }
-
-  table {
-    @apply w-full border border-[#dee2e6] text-[#212529];
-  }
-
-  thead th {
-    @apply align-bottom border-b-2 border-[#dee2e6];
-  }
-
-  td,
-  th {
-    @apply border border-[#dee2e6] py-1 px-3 align-top;
   }
 }

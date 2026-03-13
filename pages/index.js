@@ -46,7 +46,7 @@ const Index = ({ profile, profile2, works }) => {
               ${isAtTop ? "opacity-100" : "opacity-0"}`}
             aria-label="スクロールして続きを見る"
           >
-            <span className="text-xs tracking-widest">scroll</span>
+            <span className="tracking-widest">scroll</span>
             <FontAwesomeIcon icon={faAnglesDown} />
           </span>
         </section>
@@ -82,11 +82,11 @@ const Index = ({ profile, profile2, works }) => {
             className="flex flex-col gap-2 items-center
                       md:flex-row md:justify-between"
           >
-            <div className="text-neutral-500 text-xs">
+            <div className="text-neutral-500">
               Icons: Devicon, Simple Icons, Font Awesome Free |
               各商標は各社に帰属
             </div>
-            <div className="text-neutral-400 text-sm md:shrink-0 self-end md:self-auto">
+            <div className="text-neutral-400 md:shrink-0 self-end md:self-auto">
               Last Update: Mar 2026
             </div>
           </div>
