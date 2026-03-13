@@ -49,7 +49,7 @@ const Works = ({ children }) => {
                       w-full md:w-auto
                       px-8 py-2
                       border border-neutral-400 rounded-full
-                      text-neutral-500 text-sm tracking-widest
+                      text-neutral-500 tracking-widest
                       hover:border-neutral-600 hover:text-neutral-700
                       transition-colors duration-200
                       cursor-pointer"

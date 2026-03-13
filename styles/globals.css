@@ -6,19 +6,19 @@
   }
 
   h2 {
-    @apply text-[2rem] font-bold;
-  }
-
-  h3 {
     @apply text-[1.75rem] font-bold;
   }
 
-  h4 {
+  h3 {
     @apply text-[1.5rem] font-bold;
   }
 
-  h5 {
+  h4 {
     @apply text-[1.25rem] font-bold;
+  }
+
+  h5 {
+    @apply text-[1.125rem] font-bold;
   }
 
   h6 {
@@ -42,7 +42,7 @@
   }
 
   em {
-    @apply text-neutral-500 text-sm;
+    @apply text-neutral-500;
   }
 
   a:has(img) {
