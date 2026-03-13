@@ -37,14 +37,6 @@
     @apply my-1;
   }
 
-  p {
-    @apply mb-4;
-  }
-
-  em {
-    @apply text-neutral-500;
-  }
-
   a:has(img) {
     @apply inline-flex;
   }
@@ -55,14 +47,6 @@
 
   img:not(a img) {
     @apply inline-block;
-  }
-
-  ul {
-    @apply list-disc pl-6 flex flex-col gap-1;
-  }
-
-  ol {
-    @apply list-decimal pl-6 flex flex-col gap-1;
   }
 
   table {
