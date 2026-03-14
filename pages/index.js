@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
 import fs from "fs";
 import path from "path";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 
 import HeaderBody, {
   scrollToSkillSummary,
@@ -15,17 +12,9 @@ import SkillSummary from "@/components/skillSummary";
 import Works from "@/components/works";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
+import ScrollIndicator from "@/components/scrollIndicator";
 
 const Index = ({ profile, works }) => {
-  const [isAtTop, setIsAtTop] = useState(true);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => setIsAtTop(window.scrollY < 30), {
-      passive: true,
-    });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-[1000]">
@@ -40,16 +29,7 @@ const Index = ({ profile, works }) => {
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
             <Profile>{profile}</Profile>
           </div>
-          <span
-            className={`absolute bottom-6 left-1/2 -translate-x-1/2
-              flex flex-col items-center gap-1 text-neutral-500 animate-bounce
-              transition-opacity duration-300
-              ${isAtTop ? "opacity-100" : "opacity-0"}`}
-            aria-label="スクロールして続きを見る"
-          >
-            <span className="tracking-widest">scroll</span>
-            <FontAwesomeIcon icon={faAnglesDown} />
-          </span>
+          <ScrollIndicator />
         </section>
 
         <section className="py-16 bg-neutral-100" id={scrollToSkillSummary}>
