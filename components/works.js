@@ -16,6 +16,7 @@ const Works = ({ children }) => {
   return (
     <div>
       <motion.div
+        initial={{ height: 1200 }}
         animate={{ height: isClosed ? 1200 : "auto" }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className="relative overflow-hidden"
@@ -24,7 +25,7 @@ const Works = ({ children }) => {
         <div className={styles.timeline}>
           <Markdown components={{ h2: () => null }}>{children}</Markdown>
         </div>
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {isClosed && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -50,7 +51,7 @@ const Works = ({ children }) => {
             onClick={() => setIsClosed(false)}
           >
             <span>show more...</span>
-            <FontAwesomeIcon icon={faAngleDown} />
+            <FontAwesomeIcon icon={faAngleDown} className="w-4 h-4" />
           </button>
         </div>
       )}

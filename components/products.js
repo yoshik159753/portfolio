@@ -47,7 +47,7 @@ const Card = ({ img, title, text, tech, link }) => {
                         cursor-pointer"
                 >
                   <span>link</span>
-                  <FontAwesomeIcon icon={faAngleRight} />
+                  <FontAwesomeIcon icon={faAngleRight} className="w-4 h-4" />
                 </a>
               </div>
             )}
