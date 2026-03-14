@@ -1,10 +1,16 @@
 import Markdown from "@/components/markdown";
 
-const DevIcon = ({ dname, filename, size = 15 }) => <div className="flex items-center">
-  <img src={`/images/icons/${filename}`} alt={filename} width={size} height={size} />
-  <span className="ml-1">{dname}</span>
-</div>
-
+const DevIcon = ({ dname, filename, size = 15 }) => (
+  <div className="flex items-center">
+    <img
+      src={`/images/icons/${filename}`}
+      alt={filename}
+      width={size}
+      height={size}
+    />
+    <span className="ml-1">{dname}</span>
+  </div>
+);
 
 const ProgressBar = ({ val, max }) => {
   const percent = Math.round((val / max) * 100);
@@ -49,10 +55,11 @@ const Table = ({ header, items }) => {
                 className={`px-2 md:px-4 py-2
                             align-middle
                             border-x-0
-                            ${rowIndex < items.length - 1
-                    ? "border-b border-neutral-200"
-                    : ""
-                  }`}
+                            ${
+                              rowIndex < items.length - 1
+                                ? "border-b border-neutral-200"
+                                : ""
+                            }`}
               >
                 {key === "level" ? (
                   <ProgressBar val={val.val} max={val.max} />
@@ -247,6 +254,27 @@ const Skills = () => {
     },
   ];
 
+  const cloud = [
+    {
+      name: <DevIcon dname="GCP" filename="googlecloud.svg" />,
+      exp: "2年ほど",
+      level: { val: 3, max: 5 },
+      memo: "",
+    },
+    {
+      name: <DevIcon dname="AWS" filename="aws.svg" />,
+      exp: "なし",
+      level: { val: 2, max: 5 },
+      memo: "プライベートで使用",
+    },
+    {
+      name: <DevIcon dname="Vercel" filename="vercel.svg" />,
+      exp: "なし",
+      level: { val: 2, max: 5 },
+      memo: "プライベートで使用",
+    },
+  ];
+
   // 開発ツール(DevelopmentTools)
   const devTools = [
     {
@@ -348,6 +376,10 @@ const Skills = () => {
       <div className="mt-6">
         <h6>フレームワーク</h6>
         <Table header={header} items={frameworks} />
+      </div>
+      <div className="mt-6">
+        <h6>クラウド</h6>
+        <Table header={header} items={cloud} />
       </div>
       <div className="mt-6">
         <h6>開発ツール</h6>
