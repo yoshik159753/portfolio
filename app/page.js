@@ -14,7 +14,16 @@ import Skills from "@/components/skills";
 import Products from "@/components/products";
 import ScrollIndicator from "@/components/scrollIndicator";
 
-const Index = ({ profile, works }) => {
+export default async function Page() {
+  const profile = fs.readFileSync(
+    path.join(process.cwd(), "content", "profile.md"),
+    "utf-8"
+  );
+  const works = fs.readFileSync(
+    path.join(process.cwd(), "content", "works.md"),
+    "utf-8"
+  );
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-[1000]">
@@ -75,20 +84,4 @@ const Index = ({ profile, works }) => {
       </footer>
     </>
   );
-};
-
-export async function getServerSideProps() {
-  const profile = fs.readFileSync(
-    path.join(process.cwd(), "content", "profile.md"),
-    "utf-8"
-  );
-  const works = fs.readFileSync(
-    path.join(process.cwd(), "content", "works.md"),
-    "utf-8"
-  );
-  return {
-    props: { profile, works },
-  };
 }
-
-export default Index;
