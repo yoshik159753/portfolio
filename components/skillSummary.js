@@ -107,6 +107,7 @@ const SkillSummary = () => {
           filename: "asciidoctor.svg",
         },
         claude: { link: "https://code.claude.com/", filename: "claude.svg" },
+        devin: { link: "https://devin.ai/", filename: "devin.png" },
       },
     },
     others: {
