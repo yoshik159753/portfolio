@@ -11,11 +11,12 @@ import HeaderBody, {
   scrollToProducts,
 } from "@/components/headerBody";
 import Profile from "@/components/profile";
+import SkillSummary from "@/components/skillSummary";
 import Works from "@/components/works";
 import Skills from "@/components/skills";
 import Products from "@/components/products";
 
-const Index = ({ profile, profile2, works }) => {
+const Index = ({ profile, works }) => {
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const Index = ({ profile, profile2, works }) => {
 
         <section className="py-16 bg-neutral-100" id={scrollToSkillSummary}>
           <div className="max-w-[720px] mx-auto px-4 md:px-0">
-            <Profile>{profile2}</Profile>
+            <SkillSummary />
           </div>
         </section>
 
@@ -101,16 +102,12 @@ export async function getServerSideProps() {
     path.join(process.cwd(), "content", "profile.md"),
     "utf-8"
   );
-  const profile2 = fs.readFileSync(
-    path.join(process.cwd(), "content", "profile2.md"),
-    "utf-8"
-  );
   const works = fs.readFileSync(
     path.join(process.cwd(), "content", "works.md"),
     "utf-8"
   );
   return {
-    props: { profile, profile2, works },
+    props: { profile, works },
   };
 }
 
