@@ -50,7 +50,7 @@ const Works = ({ children }) => {
             onClick={() => setIsClosed(false)}
           >
             <span>show more...</span>
-            <FontAwesomeIcon icon={faAngleDown} />
+            <FontAwesomeIcon icon={faAngleDown} className="w-4 h-4" />
           </button>
         </div>
       )}

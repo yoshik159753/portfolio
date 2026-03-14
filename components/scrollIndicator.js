@@ -23,7 +23,7 @@ export default function ScrollIndicator() {
       aria-label="スクロールして続きを見る"
     >
       <span className="tracking-widest">scroll</span>
-      <FontAwesomeIcon icon={faAnglesDown} />
+      <FontAwesomeIcon icon={faAnglesDown} className="w-4 h-4" />
     </span>
   );
 }
